@@ -39,22 +39,10 @@
 			const resultDiv = document.getElementById('result');
 			var qrcode = new QRCode(document.getElementById("qrcode"), { width: 384, height: 384,});
 			
-			var expirationDate = new Date();
-			expirationDate.setDate(expirationDate.getDate());
-			
-			var expirationDateString = expirationDate.toISOString().substring(0, 10);
-			var qrCodeData = "Today date is";
-
-			qrCodeData += ":  " + expirationDateString;
-			
+			var lTime = new Date();
+			var lTimeString = lTime.toLocaleString('en-US', { timeZone: 'Asia/Taipei' });
+			var qrCodeData = "Page loaded Time is : " + lTimeString;	
 			qrcode.makeCode(qrCodeData);
-			
-			/*navigator.mediaDevices.getUserMedia({ video: true })
-				.then(stream => {
-				video.srcObject = stream;
-			}).catch(error => {
-				console.error('Error accessing camera:', error);
-			});*/
 			
 			function startCamera() {
 				navigator.mediaDevices.getUserMedia({ video: { facingMode: "environment" } })
