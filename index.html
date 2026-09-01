@@ -1,15 +1,245 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="zh-Hant">
-<html>
-	<head>
-		<title>My GitHub Pages</title>
-	</head>
-	<body>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta
+      name="description"
+      content="詹昀昇的 Unity 程式作品集，以 Game Producer 2 展示 Gameplay、Photon 多人連線、角色能力、Boss 與關卡系統實作。"
+    >
+    <meta name="theme-color" content="#0b0f17">
+    <title>詹昀昇｜Game Producer 2 程式作品集</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content">跳到主要內容</a>
 
-		<ul>
-			<li><a href="./FF4RPG/">FF4RPG WEB</a></li>
-			<li><a href="./QrcodeTry.html">QRCode Try</a></li>
-		</ul>
+    <svg class="svg-definitions" aria-hidden="true">
+      <symbol id="icon-cube" viewBox="0 0 24 24">
+        <path d="m12 2 9 5-9 5-9-5 9-5Zm-9 5v10l9 5 9-5V7M12 12v10" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linejoin="bevel"></path>
+      </symbol>
+      <symbol id="icon-signal" viewBox="0 0 24 24">
+        <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
+        <path d="M8.5 8.5a5 5 0 0 0 0 7m7-7a5 5 0 0 1 0 7M5.5 5.5a9.2 9.2 0 0 0 0 13m13-13a9.2 9.2 0 0 1 0 13" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+      </symbol>
+      <symbol id="icon-input" viewBox="0 0 24 24">
+        <path d="M3 5h18v14H3zM6 9h2m2 0h2m2 0h2m2 0h1M6 13h2m2 0h2m2 0h5M8 16h8" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+      </symbol>
+      <symbol id="icon-chip" viewBox="0 0 24 24">
+        <path d="M7 7h10v10H7zM9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4m14-6h4m-4 6h4" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+      </symbol>
+      <symbol id="icon-owner" viewBox="0 0 24 24">
+        <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
+        <path d="M4 21c.5-5 3-7 8-7s7.5 2 8 7" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+      </symbol>
+      <symbol id="icon-mail" viewBox="0 0 24 24">
+        <path d="M2 5h20v14H2zm1 1 9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.5"></path>
+      </symbol>
+    </svg>
 
-	</body>
+    <main id="main-content">
+      <section class="hero shell" id="project" aria-labelledby="hero-title">
+        <div class="hero__grid">
+          <div class="hero__copy">
+            <h1 id="hero-title">將團隊設計的玩法，<br>實作成可玩的 Unity 系統。</h1>
+            <p class="project-name">GAME PRODUCER 2</p>
+            <p class="project-role">主要程式負責人</p>
+          </div>
+          <figure class="hero__media media-frame">
+            <img src="assets/hero-gameplay.webp" alt="Game Producer 2 中兩名玩家合作通過懸吊平台與升降機關" width="1800" height="1013" fetchpriority="high">
+          </figure>
+        </div>
+
+        <div class="project-summary" aria-label="專案摘要">
+          <strong>專案概述</strong>
+          <p>Game Producer 2 是一款 PC 雙人連線合作動作解謎遊戲。2021/07–2022/06，以 Unity 2019.4.41f2、C# 與 Photon PUN 進行開發；由三人團隊完成，作品入圍 2022 新一代設計展。</p>
+        </div>
+      </section>
+
+      <section class="section shell" id="implementation" aria-labelledby="responsibility-title">
+        <div class="section-heading">
+          <h2 id="responsibility-title">我的程式責任</h2>
+          <i aria-hidden="true"></i>
+        </div>
+        <p class="section-intro">玩法與關卡概念由團隊共同設計；我主要負責程式實作、除錯與系統整合。</p>
+
+        <div class="responsibility-grid">
+          <article>
+            <h3>核心 Gameplay</h3>
+            <p>建立雙角色的移動、攻擊與能力流程，將輸入、角色狀態及場景互動串成完整操作循環。</p>
+            <small>PlayerController / Skill / Attack</small>
+          </article>
+          <article>
+            <h3>多人連線</h3>
+            <p>以 Photon PUN 處理玩家生成、角色識別、物件控制權與狀態同步，支援雙人共同解謎。</p>
+            <small>NetworkPlayer / PlayerManager / Ownership</small>
+          </article>
+          <article>
+            <h3>關卡與 Boss</h3>
+            <p>將角色能力接入可破壞物件、合作機關、敵人與 Boss，從單一功能整合成可遊玩的關卡流程。</p>
+            <small>Mechanic / Enemy / Boss</small>
+          </article>
+          <article>
+            <h3>整合與除錯</h3>
+            <p>負責跨角色、物理與網路系統的整合測試，針對權限、碰撞與多人狀態進行除錯。</p>
+            <small>Gameplay × Physics × Networking</small>
+          </article>
+        </div>
+
+        <div class="section-heading section-heading--spaced">
+          <h2>角色能力實作</h2>
+          <i aria-hidden="true"></i>
+        </div>
+
+        <div class="abilities">
+          <article class="ability ability--artist">
+            <a class="ability__gameplay media-frame" href="https://youtu.be/E97_iq1EMUU?si=-v7pNhvmOL41S0fL" target="_blank" rel="noreferrer" aria-label="觀看 Artist 技能操作影片">
+              <img src="assets/artist-gameplay.webp" alt="Artist 以繪製路徑生成物件的遊戲畫面" width="1600" height="900" loading="lazy">
+            </a>
+            <div class="ability__flow">
+              <p class="ability__role">Artist 能力</p>
+              <h3>畫線／生成物件</h3>
+              <p class="ability__description">記錄玩家繪製路徑，依路徑資料生成可互動物件，讓生成結果直接參與關卡解謎。</p>
+              <ul class="ability__points" aria-label="Artist 能力實作重點">
+                <li>輸入取樣</li><li>路徑資料</li><li>物件生成</li><li>碰撞互動</li>
+              </ul>
+            </div>
+          </article>
+
+          <article class="ability ability--programmer">
+            <a class="ability__gameplay media-frame" href="https://youtu.be/E97_iq1EMUU?si=-v7pNhvmOL41S0fL" target="_blank" rel="noreferrer" aria-label="觀看 Programmer 技能操作影片">
+              <img src="assets/programmer-gameplay.webp" alt="Programmer 操作場景物件位置的遊戲畫面" width="1600" height="900" loading="lazy">
+            </a>
+            <div class="ability__flow">
+              <p class="ability__role">Programmer 能力</p>
+              <h3>選取／移動／縮放／投擲</h3>
+              <p class="ability__description">選取場景物件後取得操作權限，處理移動、縮放與投擲，並同步狀態給另一名玩家。</p>
+              <ul class="ability__points" aria-label="Programmer 能力實作重點">
+                <li>射線選取</li><li>Ownership</li><li>Rigidbody 操作</li><li>網路同步</li>
+              </ul>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="section shell" aria-labelledby="network-title">
+        <div class="section-heading">
+          <h2 id="network-title">多人連線與物件控制</h2>
+          <i aria-hidden="true"></i>
+        </div>
+        <p class="section-intro">將操作拆成「本機判定」與「網路同步」兩個階段，避免未取得控制權的玩家直接改寫同一個物件狀態。</p>
+
+        <ol class="network-flow" aria-label="多人連線物件控制流程">
+          <li><svg aria-hidden="true"><use href="#icon-input"></use></svg><span>玩家輸入</span><small>接收技能、選取與操作指令</small></li>
+          <li><svg aria-hidden="true"><use href="#icon-chip"></use></svg><span>本機判定</span><small>確認目標與目前互動狀態</small></li>
+          <li><svg aria-hidden="true"><use href="#icon-owner"></use></svg><span>Photon Ownership</span><small>取得物件的網路控制權</small></li>
+          <li><svg aria-hidden="true"><use href="#icon-cube"></use></svg><span>Rigidbody 操作</span><small>執行移動、縮放或投擲</small></li>
+          <li><svg aria-hidden="true"><use href="#icon-signal"></use></svg><span>同步結果</span><small>讓另一名玩家收到最終狀態</small></li>
+        </ol>
+
+        <div class="section-heading section-heading--spaced">
+          <h2>Boss 與關卡機關</h2>
+          <i aria-hidden="true"></i>
+        </div>
+        <p class="section-intro">角色能力不只在獨立測試場景運作，還必須與關卡元件、敵人行為及雙人合作條件共同整合。</p>
+
+        <div class="evidence-gallery">
+          <figure class="evidence-gallery__main media-frame">
+            <img src="assets/hero-gameplay.webp" alt="兩名玩家合作通過升降機關" width="1800" height="1013" loading="lazy">
+            <figcaption><strong>合作機關</strong><span>兩名玩家組合不同能力，完成升降與路徑通行。</span></figcaption>
+          </figure>
+          <div class="evidence-gallery__rail">
+            <figure class="media-frame">
+              <img src="assets/cooperation.webp" alt="兩名角色在科技關卡中合作移動" width="1400" height="788" loading="lazy">
+              <figcaption><strong>能力協作</strong><span>把兩套角色能力串成同一個解謎流程。</span></figcaption>
+            </figure>
+            <figure class="media-frame">
+              <img src="assets/boss.webp" alt="Game Producer 2 的 Boss 戰鬥畫面" width="1400" height="788" loading="lazy">
+              <figcaption><strong>Boss 行為</strong><span>整合移動、攻擊判定與玩家互動。</span></figcaption>
+            </figure>
+            <figure class="media-frame">
+              <img src="assets/level-mechanic.webp" alt="玩家合作破壞關卡牆面的遊戲畫面" width="1400" height="788" loading="lazy">
+              <figcaption><strong>互動式元件</strong><span>讓破壞與觸發結果改變關卡通行狀態。</span></figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="section shell" id="code-review" aria-labelledby="code-title">
+        <div class="section-heading">
+          <h2 id="code-title">程式碼回顧</h2>
+          <i aria-hidden="true"></i>
+        </div>
+        <p class="section-intro">保留當年實作脈絡，同時說明如果現在重做，我會如何降低耦合並提升可維護性。</p>
+
+        <div class="review-layout">
+          <article class="review-column">
+            <h3>當年實作脈絡</h3>
+            <p class="review-summary">以較集中的 MonoBehaviour 快速串接輸入、角色行為、動畫與互動，能迅速完成玩法驗證；但功能持續增加後，狀態與責任容易互相牽連。</p>
+            <div class="code-silhouette code-silhouette--long" aria-hidden="true">
+              <span class="code-line" style="--w: 42%; --c: #8b76d1"></span>
+              <span class="code-line" style="--w: 64%; --c: #747f91"></span>
+              <span class="code-line" style="--w: 78%; --c: #3f6eaa"></span>
+              <span class="code-line" style="--w: 58%; --c: #438b7d"></span>
+              <span class="code-line" style="--w: 82%; --c: #a34c74"></span>
+              <span class="code-line" style="--w: 49%; --c: #6c7788"></span>
+              <span class="code-line" style="--w: 73%; --c: #416aa5"></span>
+              <span class="code-line" style="--w: 69%; --c: #a4873a"></span>
+              <span class="code-line" style="--w: 46%; --c: #9c4653"></span>
+              <span class="code-line" style="--w: 75%; --c: #667181"></span>
+              <span class="code-line" style="--w: 62%; --c: #9a4f69"></span>
+              <span class="code-line" style="--w: 39%; --c: #a4853d"></span>
+            </div>
+            <p class="source-note">目前先保留結構示意；取得可公開版本後，再替換為當年真實原始碼片段。</p>
+          </article>
+
+          <div class="review-arrow" aria-hidden="true">→</div>
+
+          <article class="review-column review-column--now">
+            <h3>現在的改進方向</h3>
+            <p class="review-summary">將輸入、角色能力、物件互動與網路同步拆成清楚的責任邊界，讓本機規則可獨立驗證，網路層只處理權限與狀態傳遞。</p>
+            <div class="review-now__body">
+              <div class="code-silhouette" aria-hidden="true">
+                <span class="code-line" style="--w: 54%; --c: #8b76d1"></span>
+                <span class="code-line" style="--w: 51%; --c: #747f91"></span>
+                <span class="code-line" style="--w: 72%; --c: #438b7d"></span>
+                <span class="code-line" style="--w: 63%; --c: #416aa5"></span>
+                <span class="code-line" style="--w: 44%; --c: #a4873a"></span>
+                <span class="code-line" style="--w: 68%; --c: #667181"></span>
+              </div>
+              <ul class="improvement-topics">
+                <li><svg aria-hidden="true"><use href="#icon-input"></use></svg><div><strong>輸入事件生命週期</strong><p>集中註冊與解除，避免切換角色或場景後重複監聽。</p></div></li>
+                <li><svg aria-hidden="true"><use href="#icon-cube"></use></svg><div><strong>職責拆分</strong><p>分離 Input、Ability、Interaction 與 Presentation。</p></div></li>
+                <li><svg aria-hidden="true"><use href="#icon-signal"></use></svg><div><strong>網路與 Gameplay 分層</strong><p>先定義本機規則，再由同步層傳遞權限與狀態。</p></div></li>
+              </ul>
+            </div>
+          </article>
+        </div>
+
+        <div class="section-heading section-heading--spaced">
+          <h2>技術反思</h2>
+          <i aria-hidden="true"></i>
+        </div>
+        <div class="reflection">
+          <div class="reflection__copy">
+            <p>從完成系統，<br>到建立可維護的系統。</p>
+            <small>這個專案讓我理解：功能完成只是第一步。面對多人連線與持續調整的玩法，清楚的責任邊界、可追蹤的狀態與可獨立驗證的模組，才能降低後續整合成本。</small>
+          </div>
+          <div class="reflection__track" aria-hidden="true"><i></i><b></b><b></b><b></b><span></span></div>
+        </div>
+
+        <div class="section-heading section-heading--spaced" id="contact">
+          <h2>聯絡</h2>
+          <i aria-hidden="true"></i>
+        </div>
+        <div class="contact-bar">
+          <a href="mailto:shinnhozi@gmail.com">
+            <svg aria-hidden="true"><use href="#icon-mail"></use></svg>
+            shinnhozi@gmail.com
+          </a>
+        </div>
+      </section>
+    </main>
+  </body>
 </html>
