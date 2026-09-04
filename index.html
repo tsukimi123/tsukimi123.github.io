@@ -3,243 +3,384 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta
-      name="description"
-      content="詹昀昇的 Unity 程式作品集，以 Game Producer 2 展示 Gameplay、Photon 多人連線、角色能力、Boss 與關卡系統實作。"
-    >
-    <meta name="theme-color" content="#0b0f17">
-    <title>詹昀昇｜Game Producer 2 程式作品集</title>
-    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
-    <link rel="stylesheet" href="styles.css">
+    <meta name="description" content="詹昀昇的 Unity Gameplay Programmer 作品集，以 Game Producer 2 展示角色能力、物件互動、Photon Ownership、位置同步與多人房間流程。">
+    <meta name="theme-color" content="#07131f">
+    <title>個人作品集</title>
+    <link rel="stylesheet" href="CSS/styles.css?v=20260904-1">
+    <script src="JavaScript/script.js?v=20260904-1" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">跳到主要內容</a>
 
     <svg class="svg-definitions" aria-hidden="true">
-      <symbol id="icon-cube" viewBox="0 0 24 24">
-        <path d="m12 2 9 5-9 5-9-5 9-5Zm-9 5v10l9 5 9-5V7M12 12v10" fill="none" stroke="currentColor" stroke-width="1.55" stroke-linejoin="bevel"></path>
-      </symbol>
-      <symbol id="icon-signal" viewBox="0 0 24 24">
-        <circle cx="12" cy="12" r="1.5" fill="currentColor"></circle>
-        <path d="M8.5 8.5a5 5 0 0 0 0 7m7-7a5 5 0 0 1 0 7M5.5 5.5a9.2 9.2 0 0 0 0 13m13-13a9.2 9.2 0 0 1 0 13" fill="none" stroke="currentColor" stroke-width="1.5"></path>
-      </symbol>
-      <symbol id="icon-input" viewBox="0 0 24 24">
-        <path d="M3 5h18v14H3zM6 9h2m2 0h2m2 0h2m2 0h1M6 13h2m2 0h2m2 0h5M8 16h8" fill="none" stroke="currentColor" stroke-width="1.5"></path>
-      </symbol>
-      <symbol id="icon-chip" viewBox="0 0 24 24">
-        <path d="M7 7h10v10H7zM9 1v4m6-4v4M9 19v4m6-4v4M1 9h4m-4 6h4m14-6h4m-4 6h4" fill="none" stroke="currentColor" stroke-width="1.5"></path>
-      </symbol>
-      <symbol id="icon-owner" viewBox="0 0 24 24">
-        <circle cx="12" cy="8" r="4" fill="none" stroke="currentColor" stroke-width="1.5"></circle>
-        <path d="M4 21c.5-5 3-7 8-7s7.5 2 8 7" fill="none" stroke="currentColor" stroke-width="1.5"></path>
-      </symbol>
-      <symbol id="icon-mail" viewBox="0 0 24 24">
-        <path d="M2 5h20v14H2zm1 1 9 7 9-7" fill="none" stroke="currentColor" stroke-width="1.5"></path>
-      </symbol>
+      <symbol id="icon-cube" viewBox="0 0 24 24"><path d="m12 2 9 5-9 5-9-5 9-5Zm-9 5v10l9 5 9-5V7M12 12v10" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linejoin="bevel"></path></symbol>
+      <symbol id="icon-pointer" viewBox="0 0 24 24"><path d="M5 3v14l4-4 3 7 3-1.5-3-6.5h6L5 3Z" fill="none" stroke="currentColor" stroke-width="1.45" stroke-linejoin="bevel"></path></symbol>
+      <symbol id="icon-physics" viewBox="0 0 24 24"><path d="M5 19h14M7 15l5-10 5 10M9 11h6M5 19l2-4m12 4-2-4" fill="none" stroke="currentColor" stroke-width="1.45"></path></symbol>
+      <symbol id="icon-owner" viewBox="0 0 24 24"><circle cx="7" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.45"></circle><circle cx="17" cy="8" r="3" fill="none" stroke="currentColor" stroke-width="1.45"></circle><path d="M2 20c.5-4 2-6 5-6s4.5 2 5 6m0 0c.5-4 2-6 5-6s4.5 2 5 6M9 8h6" fill="none" stroke="currentColor" stroke-width="1.45"></path></symbol>
+      <symbol id="icon-signal" viewBox="0 0 24 24"><circle cx="12" cy="12" r="1.5" fill="currentColor"></circle><path d="M8.5 8.5a5 5 0 0 0 0 7m7-7a5 5 0 0 1 0 7M5.5 5.5a9.2 9.2 0 0 0 0 13m13-13a9.2 9.2 0 0 1 0 13" fill="none" stroke="currentColor" stroke-width="1.45"></path></symbol>
+      <symbol id="icon-lobby" viewBox="0 0 24 24"><path d="M3 3h11v18H3zM8 12h.1M14 7h7v13h-7" fill="none" stroke="currentColor" stroke-width="1.45"></path><circle cx="18" cy="10" r="1.5" fill="none" stroke="currentColor" stroke-width="1.45"></circle><path d="M15.5 16c.4-2 1.2-3 2.5-3s2.1 1 2.5 3" fill="none" stroke="currentColor" stroke-width="1.45"></path></symbol>
+      <symbol id="icon-code" viewBox="0 0 24 24"><path d="m8 5-6 7 6 7m8-14 6 7-6 7M14 3l-4 18" fill="none" stroke="currentColor" stroke-width="1.45"></path></symbol>
+      <symbol id="icon-play" viewBox="0 0 24 24"><path d="M5 3h14v18H5zM10 8l6 4-6 4V8Z" fill="none" stroke="currentColor" stroke-width="1.45"></path></symbol>
+      <symbol id="icon-award" viewBox="0 0 24 24"><path d="M8 3h8v4a4 4 0 0 1-8 0V3Zm0 2H3v2c0 3 2 5 5 5m8-7h5v2c0 3-2 5-5 5M12 11v5m-4 5h8m-6-5h4v5h-4z" fill="none" stroke="currentColor" stroke-width="1.45"></path></symbol>
+      <symbol id="icon-menu" viewBox="0 0 24 24"><path d="M4 7h16M4 12h16M4 17h16" fill="none" stroke="currentColor" stroke-width="1.5"></path></symbol>
     </svg>
 
+    <header class="site-header" data-header>
+      <div class="site-header__progress" aria-hidden="true"></div>
+      <div class="nav-shell">
+        <a class="brand" href="#top" aria-label="回到頁首">
+          <span class="brand__copy"><strong>GAME PRODUCER 2</strong><small>詹昀昇</small></span>
+        </a>
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">
+          <span class="sr-only">開啟導覽選單</span><svg aria-hidden="true"><use href="#icon-menu"></use></svg>
+        </button>
+        <nav class="site-nav" id="site-nav" aria-label="主要導覽">
+          <a href="#systems">系統解析</a><a href="#code">程式證據</a><a href="#reflection">技術反思</a>
+        </nav>
+      </div>
+    </header>
+
     <main id="main-content">
-      <section class="hero shell" id="project" aria-labelledby="hero-title">
-        <div class="hero__grid">
-          <div class="hero__copy">
-            <h1 id="hero-title">將團隊設計的玩法，<br>實作成可玩的 Unity 系統。</h1>
-            <p class="project-name">GAME PRODUCER 2</p>
-            <p class="project-role">主要程式負責人</p>
+      <section class="hero section-shell" id="top" aria-labelledby="hero-title">
+        <div class="hero__layout">
+          <div class="hero__copy" data-reveal>
+            <h1 id="hero-title"><span>UNITY</span><span>GAMEPLAY</span><span>PROGRAMMER</span></h1>
+            <p class="hero__statement">團隊設計，<strong>我負責實作。</strong></p>
+            <p class="hero__stack">Unity 2019.4 · C# · Photon PUN</p>
+            <div class="hero__actions">
+              <a class="button button--primary" href="#systems">查看系統解析<span aria-hidden="true">→</span></a>
+              <a class="button button--secondary" href="#code"><svg aria-hidden="true"><use href="#icon-code"></use></svg>查看程式證據</a>
+            </div>
           </div>
-          <figure class="hero__media media-frame">
-            <img src="assets/hero-gameplay.webp" alt="Game Producer 2 中兩名玩家合作通過懸吊平台與升降機關" width="1800" height="1013" fetchpriority="high">
+          <figure class="hero__media media-frame" data-reveal>
+            <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-gameplay.webp" data-ambient-video aria-label="Game Producer 2 中兩名玩家合作通過懸吊平台與升降機關的實機片段">
+              <source src="assets/video/hero-coop-loop.mp4" type="video/mp4">
+            </video>
+            <figcaption><span>可玩成果</span><strong>雙人連線合作動作解謎</strong></figcaption>
           </figure>
         </div>
-
-        <div class="project-summary" aria-label="專案摘要">
-          <strong>專案概述</strong>
-          <p>Game Producer 2 是一款 PC 雙人連線合作動作解謎遊戲。2021/07–2022/06，以 Unity 2019.4.41f2、C# 與 Photon PUN 進行開發；由三人團隊完成，作品入圍 2022 新一代設計展。</p>
+        <div class="hero__facts" aria-label="專案摘要" data-reveal>
+          <span>PC · 2 PLAYERS</span><span>2021.07—2022.06</span><span>程式實作與系統整合</span><span class="hero__award">2022 金點新秀設計獎入圍</span>
         </div>
       </section>
 
-      <section class="section shell" id="implementation" aria-labelledby="responsibility-title">
-        <div class="section-heading">
-          <h2 id="responsibility-title">我的程式責任</h2>
-          <i aria-hidden="true"></i>
+      <section class="trace section-shell" id="story" aria-labelledby="trace-title">
+        <div class="section-heading" data-reveal>
+          <h2 id="trace-title">從團隊規格到可玩結果</h2>
+          <p>招募者可以沿著同一條實作路徑，看見我如何把共同規劃的功能轉成能操作、能連線、能整合進關卡的系統。</p>
         </div>
-        <p class="section-intro">玩法與關卡概念由團隊共同設計；我主要負責程式實作、除錯與系統整合。</p>
-
-        <div class="responsibility-grid">
-          <article>
-            <h3>核心 Gameplay</h3>
-            <p>建立雙角色的移動、攻擊與能力流程，將輸入、角色狀態及場景互動串成完整操作循環。</p>
-            <small>PlayerController / Skill / Attack</small>
-          </article>
-          <article>
-            <h3>多人連線</h3>
-            <p>以 Photon PUN 處理玩家生成、角色識別、物件控制權與狀態同步，支援雙人共同解謎。</p>
-            <small>NetworkPlayer / PlayerManager / Ownership</small>
-          </article>
-          <article>
-            <h3>關卡與 Boss</h3>
-            <p>將角色能力接入可破壞物件、合作機關、敵人與 Boss，從單一功能整合成可遊玩的關卡流程。</p>
-            <small>Mechanic / Enemy / Boss</small>
-          </article>
-          <article>
-            <h3>整合與除錯</h3>
-            <p>負責跨角色、物理與網路系統的整合測試，針對權限、碰撞與多人狀態進行除錯。</p>
-            <small>Gameplay × Physics × Networking</small>
-          </article>
+        <div class="trace__layout">
+          <ol class="trace__steps" aria-label="實作證據鏈" data-reveal>
+            <li><span class="trace__number">01</span><div><h3>團隊規劃</h3><p>三人團隊共同確認核心玩法、角色能力與關卡需求。</p></div></li>
+            <li><span class="trace__number">02</span><div><h3>程式實作</h3><p>我負責遊戲程式實作，包含輸入、角色能力、物件操作、物理互動與連線功能整合。</p></div></li>
+            <li><span class="trace__number">03</span><div><h3>可玩成果</h3><p>將各項功能整合成最多兩人能實際連線合作通關的版本。</p></div></li>
+          </ol>
+          <figure class="promo-reel media-frame" data-reveal>
+            <video controls preload="metadata" poster="assets/video/promo-poster.webp" aria-label="Game Producer 2 宣傳影片">
+              <source src="assets/video/gameproducer2-promo.mp4" type="video/mp4">
+              您的瀏覽器不支援 HTML5 影片播放。
+            </video>
+            <figcaption><span>專案宣傳片</span><strong>Game Producer 2</strong></figcaption>
+          </figure>
         </div>
+      </section>
 
-        <div class="section-heading section-heading--spaced">
-          <h2>角色能力實作</h2>
-          <i aria-hidden="true"></i>
+      <section class="roles section-shell" aria-labelledby="roles-title">
+        <div class="section-heading" data-reveal>
+          <h2 id="roles-title"><span class="roles-heading__line">兩種能力</span><span class="roles-heading__line">一套合作系統</span></h2>
+          <p>角色能力由團隊共同設計；以下流程、互動行為與網路整合由我負責程式實作。</p>
         </div>
-
-        <div class="abilities">
-          <article class="ability ability--artist">
-            <a class="ability__gameplay media-frame" href="https://youtu.be/E97_iq1EMUU?si=-v7pNhvmOL41S0fL" target="_blank" rel="noreferrer" aria-label="觀看 Artist 技能操作影片">
-              <img src="assets/artist-gameplay.webp" alt="Artist 以繪製路徑生成物件的遊戲畫面" width="1600" height="900" loading="lazy">
-            </a>
-            <div class="ability__flow">
-              <p class="ability__role">Artist 能力</p>
-              <h3>畫線／生成物件</h3>
-              <p class="ability__description">記錄玩家繪製路徑，依路徑資料生成可互動物件，讓生成結果直接參與關卡解謎。</p>
-              <ul class="ability__points" aria-label="Artist 能力實作重點">
-                <li>輸入取樣</li><li>路徑資料</li><li>物件生成</li><li>碰撞互動</li>
-              </ul>
-            </div>
+        <div class="roles__grid">
+          <article class="role-panel" data-reveal>
+            <figure class="role-panel__media media-frame">
+              <video autoplay muted loop playsinline preload="metadata" poster="assets/artist-gameplay.webp" data-ambient-video aria-label="Artist 以繪製路徑生成互動物件的實機片段">
+                <source src="assets/video/artist-ability-loop.mp4" type="video/mp4">
+              </video>
+            </figure>
+            <div class="role-panel__copy"><h3>美術 <span>｜繪製與生成</span></h3><p>取樣玩家繪製路徑，建立 LineRenderer 軌跡並生成可參與碰撞與解謎的場景物件。</p><ul><li>輸入取樣</li><li>路徑資料</li><li>Photon 生成</li><li>碰撞互動</li></ul></div>
           </article>
-
-          <article class="ability ability--programmer">
-            <a class="ability__gameplay media-frame" href="https://youtu.be/E97_iq1EMUU?si=-v7pNhvmOL41S0fL" target="_blank" rel="noreferrer" aria-label="觀看 Programmer 技能操作影片">
-              <img src="assets/programmer-gameplay.webp" alt="Programmer 操作場景物件位置的遊戲畫面" width="1600" height="900" loading="lazy">
-            </a>
-            <div class="ability__flow">
-              <p class="ability__role">Programmer 能力</p>
-              <h3>選取／移動／縮放／投擲</h3>
-              <p class="ability__description">選取場景物件後取得操作權限，處理移動、縮放與投擲，並同步狀態給另一名玩家。</p>
-              <ul class="ability__points" aria-label="Programmer 能力實作重點">
-                <li>射線選取</li><li>Ownership</li><li>Rigidbody 操作</li><li>網路同步</li>
-              </ul>
-            </div>
+          <article class="role-panel" data-reveal>
+            <figure class="role-panel__media media-frame">
+              <video autoplay muted loop playsinline preload="metadata" poster="assets/programmer-gameplay.webp" data-ambient-video aria-label="Programmer 選取並移動場景互動物件的實機片段">
+                <source src="assets/video/programmer-control-loop.mp4" type="video/mp4">
+              </video>
+            </figure>
+            <div class="role-panel__copy"><h3>程式 <span>｜物件控制</span></h3><p>以射線選取物件，要求 Photon Ownership，再透過 Rigidbody 執行移動、縮放與投擲。</p><ul><li>Raycast 選取</li><li>Ownership</li><li>Move / Scale</li><li>Throw</li></ul></div>
           </article>
         </div>
       </section>
 
-      <section class="section shell" aria-labelledby="network-title">
-        <div class="section-heading">
-          <h2 id="network-title">多人連線與物件控制</h2>
-          <i aria-hidden="true"></i>
+      <section class="atlas section-shell" id="systems" aria-labelledby="atlas-title">
+        <div class="section-heading" data-reveal>
+          <h2 id="atlas-title">把關卡畫面拆成四條系統路徑</h2>
+          <p>系統圖譜將輸入、能力、控制權與位置同步放回實機畫面，說明各模組如何共同形成玩家看到的結果。</p>
         </div>
-        <p class="section-intro">將操作拆成「本機判定」與「網路同步」兩個階段，避免未取得控制權的玩家直接改寫同一個物件狀態。</p>
+        <div class="atlas__board" data-atlas-workbench data-reveal>
+          <div class="atlas__media" aria-live="polite">
+            <figure class="atlas__panel is-active" data-atlas-panel="input"><img src="assets/artist-gameplay.webp" alt="美術角色透過輸入繪製並生成物件" width="1600" height="900" loading="lazy" decoding="async"></figure>
+            <figure class="atlas__panel" data-atlas-panel="abilities" aria-hidden="true"><img src="assets/cooperation.webp" alt="兩名角色組合能力完成關卡合作" width="1400" height="788" loading="lazy" decoding="async"></figure>
+            <figure class="atlas__panel" data-atlas-panel="ownership" aria-hidden="true"><img src="assets/programmer-gameplay.webp" alt="程式角色選取並控制場景物件" width="1600" height="900" loading="lazy" decoding="async"></figure>
+            <figure class="atlas__panel" data-atlas-panel="sync" aria-hidden="true"><img src="assets/hero-gameplay.webp" alt="雙人角色在同一關卡中同步合作" width="1800" height="1013" loading="lazy" decoding="async"></figure>
+          </div>
+          <ol class="atlas__callouts" aria-label="系統圖譜">
+            <li class="atlas-callout atlas-callout--input"><button type="button" data-atlas-tab="input" aria-pressed="true"><span>01</span><div><h3>輸入處理</h3><p>Input System 事件驅動角色技能與物件操作。</p></div></button></li>
+            <li class="atlas-callout atlas-callout--abilities"><button type="button" data-atlas-tab="abilities" aria-pressed="false"><span>02</span><div><h3>角色能力</h3><p>繪製、生成、選取與物理操作形成互補能力。</p></div></button></li>
+            <li class="atlas-callout atlas-callout--owner"><button type="button" data-atlas-tab="ownership" aria-pressed="false"><span>03</span><div><h3>物件控制權</h3><p>操作前先要求控制權，避免雙方同時改寫物件。</p></div></button></li>
+            <li class="atlas-callout atlas-callout--sync"><button type="button" data-atlas-tab="sync" aria-pressed="false"><span>04</span><div><h3>位置同步</h3><p>本機傳送角色位置，遠端依接收結果修正顯示差距。</p></div></button></li>
+          </ol>
+        </div>
+        <ul class="scope-grid" aria-label="實作範圍" data-reveal>
+          <li><svg aria-hidden="true"><use href="#icon-cube"></use></svg><span>繪製與生成</span></li>
+          <li><svg aria-hidden="true"><use href="#icon-pointer"></use></svg><span>選取、移動<br>縮放與投擲</span></li>
+          <li><svg aria-hidden="true"><use href="#icon-physics"></use></svg><span>物理互動</span></li>
+          <li><svg aria-hidden="true"><use href="#icon-owner"></use></svg><span>物件控制權</span></li>
+          <li><svg aria-hidden="true"><use href="#icon-signal"></use></svg><span>位置同步</span></li>
+          <li><svg aria-hidden="true"><use href="#icon-lobby"></use></svg><span>大廳與房間流程</span></li>
+        </ul>
+      </section>
 
-        <ol class="network-flow" aria-label="多人連線物件控制流程">
-          <li><svg aria-hidden="true"><use href="#icon-input"></use></svg><span>玩家輸入</span><small>接收技能、選取與操作指令</small></li>
-          <li><svg aria-hidden="true"><use href="#icon-chip"></use></svg><span>本機判定</span><small>確認目標與目前互動狀態</small></li>
-          <li><svg aria-hidden="true"><use href="#icon-owner"></use></svg><span>Photon Ownership</span><small>取得物件的網路控制權</small></li>
-          <li><svg aria-hidden="true"><use href="#icon-cube"></use></svg><span>Rigidbody 操作</span><small>執行移動、縮放或投擲</small></li>
-          <li><svg aria-hidden="true"><use href="#icon-signal"></use></svg><span>同步結果</span><small>讓另一名玩家收到最終狀態</small></li>
+      <section class="code-evidence section-shell" id="code" aria-labelledby="code-title">
+        <div class="section-heading" data-reveal>
+          <h2 id="code-title">從四段程式碼看見系統責任</h2>
+          <p>透過角色能力、物件控制、位置同步與重生流程，呈現我在 Game Producer 2 中負責的程式實作。</p>
+        </div>
+        <div class="code-workbench" data-code-workbench data-reveal>
+          <div class="code-tabs" role="tablist" aria-label="程式功能切換">
+            <button id="code-tab-artist" type="button" role="tab" aria-selected="true" aria-controls="code-panel-artist" data-code-tab="artist">繪製生成</button>
+            <button id="code-tab-control" type="button" role="tab" aria-selected="false" aria-controls="code-panel-control" data-code-tab="control" tabindex="-1">物件控制</button>
+            <button id="code-tab-sync" type="button" role="tab" aria-selected="false" aria-controls="code-panel-sync" data-code-tab="sync" tabindex="-1">位置同步</button>
+            <button id="code-tab-respawn" type="button" role="tab" aria-selected="false" aria-controls="code-panel-respawn" data-code-tab="respawn" tabindex="-1">檢查點重生</button>
+          </div>
+
+          <div class="code-review" id="code-panel-artist" role="tabpanel" aria-labelledby="code-tab-artist" data-code-panel="artist">
+            <article class="code-review__source" aria-labelledby="code-source-artist">
+              <header><div><strong id="code-source-artist">Artist / ArtistSkill.cs</strong><span>輸入事件、Photon 生成與 LineRenderer</span></div></header>
+              <pre aria-label="ArtistSkill.cs 繪製生成功能程式碼"><code><span class="code-line" data-line="34"><span class="code-keyword">private void</span> Start()</span>
+<span class="code-line" data-line="35">{</span>
+<span class="code-line code-line--guard" data-line="36">    inputMaster.Player.UsingSkill.started += _ =&gt;</span>
+<span class="code-line code-line--guard" data-line="37">    {</span>
+<span class="code-line code-line--rpc" data-line="38">        clone = (<span class="code-type">GameObject</span>)PhotonNetwork.Instantiate(<span class="code-string">"Draw"</span>, target.transform.position, Quaternion.identity, 0);</span>
+<span class="code-line" data-line="39">        a.Add(clone);</span>
+<span class="code-line" data-line="40">        clonelist = a.ToArray();</span>
+<span class="code-line code-line--state" data-line="41">        line = clone.GetComponent&lt;<span class="code-type">LineRenderer</span>&gt;();</span>
+<span class="code-line code-line--state" data-line="42">        line.material = <span class="code-keyword">new</span> Material(Shader.Find(<span class="code-string">"Sprites/Default"</span>));</span>
+<span class="code-line code-line--state" data-line="43">        line.startColor = penColor;</span>
+<span class="code-line code-line--state" data-line="44">        line.endColor = penColor;</span>
+<span class="code-line code-line--state" data-line="45">        line.startWidth = width;</span>
+<span class="code-line code-line--state" data-line="46">        line.endWidth = width / 2;</span>
+<span class="code-line" data-line="47">        i = 0;</span>
+<span class="code-line" data-line="48">    };</span>
+<span class="code-line code-line--guard" data-line="49">    inputMaster.Player.UsingSkill.performed += _ =&gt;</span>
+<span class="code-line code-line--guard" data-line="50">    {</span>
+<span class="code-line code-line--guard" data-line="51">        isDrawing = <span class="code-keyword">true</span>;</span>
+<span class="code-line code-line--guard" data-line="52">    };</span>
+<span class="code-line code-line--guard" data-line="53">    inputMaster.Player.UsingSkill.canceled += _ =&gt;</span>
+<span class="code-line code-line--guard" data-line="54">    {</span>
+<span class="code-line code-line--guard" data-line="55">        isDrawing = <span class="code-keyword">false</span>;</span>
+<span class="code-line code-line--guard" data-line="56">    };</span>
+<span class="code-line" data-line="57">    inputMaster.Player.Left.performed += _ =&gt;</span>
+<span class="code-line" data-line="58">    {</span>
+<span class="code-line" data-line="59">        ClearDraw();</span>
+<span class="code-line" data-line="60">    };</span>
+<span class="code-line" data-line="61">}</span></code></pre>
+            </article>
+            <aside class="code-review__notes" aria-label="繪製生成程式重點">
+              <header><span>CODE REVIEW</span></header>
+              <ol class="review-notes">
+                <li class="review-note review-note--guard"><span class="review-note__number">01</span><div><h3>以輸入階段管理繪製狀態</h3><p>開始、持續與取消事件分別建立軌跡、進入繪製及結束繪製。</p></div></li>
+                <li class="review-note review-note--rpc"><span class="review-note__number">02</span><div><h3>生成可同步的繪製物件</h3><p>透過 PhotonNetwork.Instantiate 建立 Draw 物件，讓結果進入多人關卡。</p></div></li>
+                <li class="review-note review-note--state"><span class="review-note__number">03</span><div><h3>設定軌跡外觀與資料</h3><p>取得 LineRenderer 後設定顏色、寬度與頂點計數，形成可互動路徑。</p></div></li>
+              </ol>
+            </aside>
+          </div>
+
+          <div class="code-review" id="code-panel-control" role="tabpanel" aria-labelledby="code-tab-control" data-code-panel="control" hidden>
+            <article class="code-review__source" aria-labelledby="code-source-control">
+              <header><div><strong id="code-source-control">Programmer / ProgrammerSkill.cs</strong><span>Raycast、Ownership 與物件操作</span></div></header>
+              <pre aria-label="ProgrammerSkill.cs 物件控制功能程式碼"><code><span class="code-line" data-line="164"><span class="code-keyword">public void</span> UseSkill()</span>
+<span class="code-line" data-line="165">{</span>
+<span class="code-line code-line--guard" data-line="166">    inputMaster.Player.UsingSkill.started += _ =&gt;</span>
+<span class="code-line code-line--guard" data-line="167">    {</span>
+<span class="code-line" data-line="168">        <span class="code-keyword">if</span> (UseZoom)</span>
+<span class="code-line" data-line="169">            <span class="code-keyword">return</span>;</span>
+<span class="code-line code-line--state" data-line="170">        <span class="code-keyword">if</span> (Physics.Raycast(ray, <span class="code-keyword">out</span> <span class="code-type">RaycastHit</span> hit, 500f, DragObjectLayer.value))</span>
+<span class="code-line code-line--state" data-line="171">        {</span>
+<span class="code-line" data-line="172">            Debug.DrawLine(ray.origin, hit.transform.position, Color.green);</span>
+<span class="code-line" data-line="173">            HitObject = hit.transform.gameObject;</span>
+<span class="code-line" data-line="174">            owner = HitObject.GetComponent&lt;<span class="code-type">ChangeOwner</span>&gt;();</span>
+<span class="code-line" data-line="175">            <span class="code-keyword">if</span> (owner != <span class="code-keyword">null</span>)</span>
+<span class="code-line" data-line="176">            {</span>
+<span class="code-line code-line--rpc" data-line="177">                owner.IsChangeOwner();</span>
+<span class="code-line code-line--rpc" data-line="178">                EffectObject = PhotonNetwork.Instantiate(Effects.name, hit.transform.position, Quaternion.identity);</span>
+<span class="code-line" data-line="179">            }</span>
+<span class="code-line" data-line="180">        }</span>
+<span class="code-line" data-line="181">    };</span>
+<span class="code-line code-line--guard" data-line="182">    inputMaster.Player.UsingSkill.performed += _ =&gt;</span>
+<span class="code-line code-line--guard" data-line="183">    {</span>
+<span class="code-line" data-line="184">        <span class="code-keyword">if</span> (UseZoom == <span class="code-keyword">true</span>)</span>
+<span class="code-line" data-line="185">        {</span>
+<span class="code-line code-line--rpc" data-line="186">            PhotonNetwork.Instantiate(<span class="code-string">"ScaleBullet"</span>, shootPoint.position, shootPoint.rotation);</span>
+<span class="code-line" data-line="187">            <span class="code-keyword">return</span>;</span>
+<span class="code-line" data-line="188">        }</span>
+<span class="code-line code-line--state" data-line="189">        Holding = <span class="code-keyword">true</span>;</span>
+<span class="code-line" data-line="190">    };</span></code></pre>
+            </article>
+            <aside class="code-review__notes" aria-label="物件控制程式重點">
+              <header><span>CODE REVIEW</span></header>
+              <ol class="review-notes">
+                <li class="review-note review-note--guard"><span class="review-note__number">01</span><div><h3>限制可操作物件範圍</h3><p>Raycast 只檢查 DragObject 圖層，先縮小互動目標再取得物件。</p></div></li>
+                <li class="review-note review-note--rpc"><span class="review-note__number">02</span><div><h3>操作前要求控制權</h3><p>選中物件後先呼叫 IsChangeOwner，再進入後續移動或縮放流程。</p></div></li>
+                <li class="review-note review-note--state"><span class="review-note__number">03</span><div><h3>依技能模式切換操作</h3><p>同一組輸入可進入拖曳、縮放或投擲狀態，對應不同關卡需求。</p></div></li>
+              </ol>
+            </aside>
+          </div>
+
+          <div class="code-review" id="code-panel-sync" role="tabpanel" aria-labelledby="code-tab-sync" data-code-panel="sync" hidden>
+            <article class="code-review__source" aria-labelledby="code-source-sync">
+              <header><div><strong id="code-source-sync">Artist / NetworkPlayer.cs</strong><span>遠端位置接收與差距修正</span></div></header>
+              <pre aria-label="NetworkPlayer.cs 位置同步功能程式碼"><code><span class="code-line" data-line="12"><span class="code-keyword">public void</span> Update()</span>
+<span class="code-line" data-line="13">{</span>
+<span class="code-line code-line--guard" data-line="14">    <span class="code-keyword">if</span> (photonView.IsMine)</span>
+<span class="code-line code-line--guard" data-line="15">        <span class="code-keyword">return</span>;</span>
+<span class="code-line" data-line="17">    <span class="code-keyword">var</span> LagDistance = RemotePlayerPosition - transform.position;</span>
+<span class="code-line code-line--state" data-line="20">    <span class="code-keyword">if</span> (LagDistance.magnitude &gt; 5f)</span>
+<span class="code-line code-line--state" data-line="21">    {</span>
+<span class="code-line code-line--state" data-line="22">        transform.position = RemotePlayerPosition;</span>
+<span class="code-line code-line--state" data-line="23">        LagDistance = Vector3.zero;</span>
+<span class="code-line code-line--state" data-line="24">    }</span>
+<span class="code-line" data-line="27">    LagDistance.y = 0;</span>
+<span class="code-line" data-line="29">    <span class="code-keyword">if</span> (LagDistance.magnitude &lt; 0.11f)</span>
+<span class="code-line" data-line="30">    {</span>
+<span class="code-line" data-line="32">        Player.moveSpeed = 0;</span>
+<span class="code-line" data-line="33">    }</span>
+<span class="code-line" data-line="34">    <span class="code-keyword">else</span></span>
+<span class="code-line" data-line="35">    {</span>
+<span class="code-line" data-line="37">        Player.moveSpeed = LagDistance.normalized.x;</span>
+<span class="code-line" data-line="38">    }</span>
+<span class="code-line" data-line="42">}</span>
+<span class="code-line code-line--rpc" data-line="44"><span class="code-keyword">public void</span> OnPhotonSerializeView(<span class="code-type">PhotonStream</span> stream, <span class="code-type">PhotonMessageInfo</span> info)</span>
+<span class="code-line code-line--rpc" data-line="45">{</span>
+<span class="code-line code-line--rpc" data-line="46">    <span class="code-keyword">if</span> (stream.IsWriting)</span>
+<span class="code-line code-line--rpc" data-line="47">    {</span>
+<span class="code-line code-line--rpc" data-line="48">        stream.SendNext(transform.position);</span>
+<span class="code-line code-line--rpc" data-line="49">    }</span>
+<span class="code-line code-line--rpc" data-line="50">    <span class="code-keyword">else</span></span>
+<span class="code-line code-line--rpc" data-line="51">    {</span>
+<span class="code-line code-line--rpc" data-line="52">        RemotePlayerPosition = (<span class="code-type">Vector3</span>)stream.ReceiveNext();</span>
+<span class="code-line code-line--rpc" data-line="53">    }</span>
+<span class="code-line code-line--rpc" data-line="54">}</span></code></pre>
+            </article>
+            <aside class="code-review__notes" aria-label="位置同步程式重點">
+              <header><span>CODE REVIEW</span></header>
+              <ol class="review-notes">
+                <li class="review-note review-note--guard"><span class="review-note__number">01</span><div><h3>只更新遠端角色副本</h3><p>本機擁有的角色直接返回，避免同步邏輯覆蓋玩家當下操作。</p></div></li>
+                <li class="review-note review-note--rpc"><span class="review-note__number">02</span><div><h3>傳送必要的位置狀態</h3><p>Photon 序列化只傳送角色位置，遠端客戶端保存最新接收結果。</p></div></li>
+                <li class="review-note review-note--state"><span class="review-note__number">03</span><div><h3>依差距修正顯示</h3><p>差距過大時直接校正位置，其餘情況依方向更新遠端移動表現。</p></div></li>
+              </ol>
+            </aside>
+          </div>
+
+          <div class="code-review" id="code-panel-respawn" role="tabpanel" aria-labelledby="code-tab-respawn" data-code-panel="respawn" hidden>
+            <article class="code-review__source" aria-labelledby="code-source-respawn">
+              <header><div><strong id="code-source-respawn">System / SpawnPoint.cs</strong><span>本機碰撞、RPC 與重生狀態</span></div></header>
+              <pre aria-label="SpawnPoint.cs 檢查點重生功能程式碼"><code><span class="code-line" data-line="23"><span class="code-keyword">private void</span> OnTriggerEnter(<span class="code-type">Collider</span> other)</span>
+<span class="code-line" data-line="24">{</span>
+<span class="code-line code-line--guard" data-line="25">    <span class="code-type">PhotonView</span> photonView = other.GetComponent&lt;<span class="code-type">PhotonView</span>&gt;();</span>
+<span class="code-line code-line--guard" data-line="26">    <span class="code-keyword">if</span> (photonView != <span class="code-keyword">null</span> &amp;&amp; photonView.IsMine == <span class="code-keyword">false</span>)</span>
+<span class="code-line code-line--guard" data-line="27">    {</span>
+<span class="code-line code-line--guard" data-line="28">        <span class="code-keyword">return</span>;</span>
+<span class="code-line code-line--guard" data-line="29">    }</span>
+<span class="code-line" data-line="30">    <span class="code-keyword">if</span> (hasTarget == <span class="code-keyword">true</span>)</span>
+<span class="code-line" data-line="31">    {</span>
+<span class="code-line code-line--rpc" data-line="32">        <span class="code-keyword">if</span> (other.gameObject.CompareTag(<span class="code-string">"Player"</span>))</span>
+<span class="code-line code-line--rpc" data-line="33">            PV.RPC(<span class="code-string">"RPC_Artist"</span>, RpcTarget.All, TargetPosition);</span>
+<span class="code-line code-line--rpc" data-line="34">        <span class="code-keyword">if</span> (other.gameObject.CompareTag(<span class="code-string">"Player2"</span>))</span>
+<span class="code-line code-line--rpc" data-line="35">            PV.RPC(<span class="code-string">"RPC_Coder"</span>, RpcTarget.All, TargetPosition);</span>
+<span class="code-line" data-line="36">    }</span>
+<span class="code-line" data-line="37">    <span class="code-keyword">else</span></span>
+<span class="code-line" data-line="38">    {</span>
+<span class="code-line code-line--rpc" data-line="39">        <span class="code-keyword">if</span> (other.gameObject.CompareTag(<span class="code-string">"Player"</span>))</span>
+<span class="code-line code-line--rpc" data-line="40">            PV.RPC(<span class="code-string">"RPC_Artist"</span>, RpcTarget.All, transform.position);</span>
+<span class="code-line code-line--rpc" data-line="41">        <span class="code-keyword">if</span> (other.gameObject.CompareTag(<span class="code-string">"Player2"</span>))</span>
+<span class="code-line code-line--rpc" data-line="42">            PV.RPC(<span class="code-string">"RPC_Coder"</span>, RpcTarget.All, transform.position);</span>
+<span class="code-line" data-line="43">    }</span>
+<span class="code-line" data-line="44">}</span>
+<span class="code-line code-line--state" data-line="45">[<span class="code-attribute">PunRPC</span>]</span>
+<span class="code-line code-line--state" data-line="46"><span class="code-keyword">public void</span> RPC_Artist(<span class="code-type">Vector3</span> position)</span>
+<span class="code-line code-line--state" data-line="47">{</span>
+<span class="code-line code-line--state" data-line="48">    GM.ArtistPosition = position;</span>
+<span class="code-line code-line--state" data-line="49">}</span>
+<span class="code-line code-line--state" data-line="50">[<span class="code-attribute">PunRPC</span>]</span>
+<span class="code-line code-line--state" data-line="51"><span class="code-keyword">public void</span> RPC_Coder(<span class="code-type">Vector3</span> position)</span>
+<span class="code-line code-line--state" data-line="52">{</span>
+<span class="code-line code-line--state" data-line="53">    GM.CoderPosition = position;</span>
+<span class="code-line code-line--state" data-line="54">}</span></code></pre>
+            </article>
+            <aside class="code-review__notes" aria-label="檢查點重生程式重點">
+              <header><span>CODE REVIEW</span></header>
+              <ol class="review-notes">
+                <li class="review-note review-note--guard"><span class="review-note__number">01</span><div><h3>只讓本機角色回報檢查點</h3><p>先確認碰撞角色的 PhotonView，避免遠端副本重複送出事件。</p></div></li>
+                <li class="review-note review-note--rpc"><span class="review-note__number">02</span><div><h3>依角色分流重生座標</h3><p>同一個 SpawnPoint 透過 RPC 分別保存兩名角色的重生位置。</p></div></li>
+                <li class="review-note review-note--state"><span class="review-note__number">03</span><div><h3>整合進實際關卡</h3><p>Game.unity 配置 34 個 SpawnPoint 實例，供兩個角色管理器取用。</p></div></li>
+              </ol>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="network-case section-shell" aria-labelledby="network-case-title">
+        <div class="section-heading" data-reveal>
+          <h2 id="network-case-title">花最久時間處理的問題：連線不同步</h2>
+          <p>針對連線延遲與物理同步誤差，我透過權限控管、狀態傳遞與實際遊玩持續降低問題發生率。</p>
+        </div>
+        <ol class="case-flow" data-reveal>
+          <li><span>01</span><div><h3>問題</h3><p>雙客戶端同時操作場景物件時，位置延遲、跳動與碰撞結果會影響合作體驗。</p></div></li>
+          <li><span>02</span><div><h3>處理方式</h3><p>本機角色負責送出狀態；遠端接收位置後修正差距，物件操作前先要求控制權。</p></div></li>
+          <li><span>03</span><div><h3>限制</h3><p>受網路品質與物理更新影響，仍可能出現短暫誤差，因此以降低不同步發生率為目標。</p></div></li>
         </ol>
-
-        <div class="section-heading section-heading--spaced">
-          <h2>Boss 與關卡機關</h2>
-          <i aria-hidden="true"></i>
-        </div>
-        <p class="section-intro">角色能力不只在獨立測試場景運作，還必須與關卡元件、敵人行為及雙人合作條件共同整合。</p>
-
-        <div class="evidence-gallery">
-          <figure class="evidence-gallery__main media-frame">
-            <img src="assets/hero-gameplay.webp" alt="兩名玩家合作通過升降機關" width="1800" height="1013" loading="lazy">
-            <figcaption><strong>合作機關</strong><span>兩名玩家組合不同能力，完成升降與路徑通行。</span></figcaption>
-          </figure>
-          <div class="evidence-gallery__rail">
-            <figure class="media-frame">
-              <img src="assets/cooperation.webp" alt="兩名角色在科技關卡中合作移動" width="1400" height="788" loading="lazy">
-              <figcaption><strong>能力協作</strong><span>把兩套角色能力串成同一個解謎流程。</span></figcaption>
-            </figure>
-            <figure class="media-frame">
-              <img src="assets/boss.webp" alt="Game Producer 2 的 Boss 戰鬥畫面" width="1400" height="788" loading="lazy">
-              <figcaption><strong>Boss 行為</strong><span>整合移動、攻擊判定與玩家互動。</span></figcaption>
-            </figure>
-            <figure class="media-frame">
-              <img src="assets/level-mechanic.webp" alt="玩家合作破壞關卡牆面的遊戲畫面" width="1400" height="788" loading="lazy">
-              <figcaption><strong>互動式元件</strong><span>讓破壞與觸發結果改變關卡通行狀態。</span></figcaption>
-            </figure>
-          </div>
-        </div>
       </section>
 
-      <section class="section shell" id="code-review" aria-labelledby="code-title">
-        <div class="section-heading">
-          <h2 id="code-title">程式碼回顧</h2>
-          <i aria-hidden="true"></i>
+      <section class="testing section-shell" aria-labelledby="testing-title">
+        <div class="section-heading" data-reveal>
+          <h2 id="testing-title">用兩個客戶端驗證多人流程</h2>
+          <p>先在同一台電腦啟動兩份遊戲執行檔進行功能測試，再與團隊成員實際遊玩，確認最多兩人的合作流程。</p>
         </div>
-        <p class="section-intro">保留當年實作脈絡，同時說明如果現在重做，我會如何降低耦合並提升可維護性。</p>
+        <dl class="testing__facts" data-reveal>
+          <div><dt>測試環境</dt><dd><strong>同機雙開</strong><span>在一台電腦同時啟動兩個遊戲執行檔，模擬兩個客戶端。</span></dd></div>
+          <div><dt>驗證內容</dt><dd><strong>連線與同步</strong><span>確認角色能力、物件互動與同步功能能在兩個客戶端正常運作。</span></dd></div>
+          <div><dt>實際遊玩</dt><dd><strong>最多兩人</strong><span>與團隊成員進行雙人遊玩，確認合作關卡能完成。</span></dd></div>
+        </dl>
+      </section>
 
-        <div class="review-layout">
-          <article class="review-column">
-            <h3>當年實作脈絡</h3>
-            <p class="review-summary">以較集中的 MonoBehaviour 快速串接輸入、角色行為、動畫與互動，能迅速完成玩法驗證；但功能持續增加後，狀態與責任容易互相牽連。</p>
-            <div class="code-silhouette code-silhouette--long" aria-hidden="true">
-              <span class="code-line" style="--w: 42%; --c: #8b76d1"></span>
-              <span class="code-line" style="--w: 64%; --c: #747f91"></span>
-              <span class="code-line" style="--w: 78%; --c: #3f6eaa"></span>
-              <span class="code-line" style="--w: 58%; --c: #438b7d"></span>
-              <span class="code-line" style="--w: 82%; --c: #a34c74"></span>
-              <span class="code-line" style="--w: 49%; --c: #6c7788"></span>
-              <span class="code-line" style="--w: 73%; --c: #416aa5"></span>
-              <span class="code-line" style="--w: 69%; --c: #a4873a"></span>
-              <span class="code-line" style="--w: 46%; --c: #9c4653"></span>
-              <span class="code-line" style="--w: 75%; --c: #667181"></span>
-              <span class="code-line" style="--w: 62%; --c: #9a4f69"></span>
-              <span class="code-line" style="--w: 39%; --c: #a4853d"></span>
-            </div>
-            <p class="source-note">目前先保留結構示意；取得可公開版本後，再替換為當年真實原始碼片段。</p>
-          </article>
+      <section class="results section-shell" aria-labelledby="results-title">
+        <div class="section-heading" data-reveal>
+          <h2 id="results-title">功能最後必須回到可玩的關卡</h2>
+          <p>角色能力、物件控制與同步機制，最終都在合作機關、敵人與 Boss 情境中接受整合測試。</p>
+        </div>
+        <div class="results__grid">
+          <figure class="result-media media-frame" data-reveal><img src="assets/cooperation.webp" alt="兩名角色在科技關卡中合作前進" width="1400" height="788" loading="lazy"><figcaption>能力協作</figcaption></figure>
+          <figure class="result-media media-frame" data-reveal><img src="assets/level-mechanic.webp" alt="角色共同破壞關卡障礙" width="1400" height="788" loading="lazy"><figcaption>互動式關卡元件</figcaption></figure>
+          <figure class="result-video result-media media-frame" data-reveal>
+            <video autoplay muted loop playsinline preload="metadata" poster="assets/boss.webp" data-ambient-video aria-label="Game Producer 2 Boss 戰鬥實機片段">
+              <source src="assets/video/boss-battle-loop.mp4" type="video/mp4">
+            </video>
+            <figcaption>Boss 戰鬥實機</figcaption>
+          </figure>
+          <figure class="result-media media-frame" data-reveal><img src="assets/boss.webp" alt="Game Producer 2 的 Boss 戰鬥畫面" width="1400" height="788" loading="lazy"><figcaption>Boss 與戰鬥整合</figcaption></figure>
+        </div>
+        <div class="award-panel" data-reveal><svg aria-hidden="true"><use href="#icon-award"></use></svg><div><strong>2022 金點新秀設計獎入圍</strong><span>Game Producer 2</span></div></div>
+      </section>
 
-          <div class="review-arrow" aria-hidden="true">→</div>
-
-          <article class="review-column review-column--now">
-            <h3>現在的改進方向</h3>
-            <p class="review-summary">將輸入、角色能力、物件互動與網路同步拆成清楚的責任邊界，讓本機規則可獨立驗證，網路層只處理權限與狀態傳遞。</p>
-            <div class="review-now__body">
-              <div class="code-silhouette" aria-hidden="true">
-                <span class="code-line" style="--w: 54%; --c: #8b76d1"></span>
-                <span class="code-line" style="--w: 51%; --c: #747f91"></span>
-                <span class="code-line" style="--w: 72%; --c: #438b7d"></span>
-                <span class="code-line" style="--w: 63%; --c: #416aa5"></span>
-                <span class="code-line" style="--w: 44%; --c: #a4873a"></span>
-                <span class="code-line" style="--w: 68%; --c: #667181"></span>
-              </div>
-              <ul class="improvement-topics">
-                <li><svg aria-hidden="true"><use href="#icon-input"></use></svg><div><strong>輸入事件生命週期</strong><p>集中註冊與解除，避免切換角色或場景後重複監聽。</p></div></li>
-                <li><svg aria-hidden="true"><use href="#icon-cube"></use></svg><div><strong>職責拆分</strong><p>分離 Input、Ability、Interaction 與 Presentation。</p></div></li>
-                <li><svg aria-hidden="true"><use href="#icon-signal"></use></svg><div><strong>網路與 Gameplay 分層</strong><p>先定義本機規則，再由同步層傳遞權限與狀態。</p></div></li>
-              </ul>
-            </div>
-          </article>
+      <section class="reflection section-shell" id="reflection" aria-labelledby="reflection-title">
+        <div class="reflection__statement" data-reveal>
+          <h2 id="reflection-title">從完成系統，<br>到建立可維護的系統。</h2>
+          <p>Game Producer 2 讓我理解，功能完成只是第一步。多人連線需要清楚的權限邊界、可追蹤的狀態與可以單獨驗證的模組；如果重新實作，我會優先整理輸入事件生命週期、拆分能力與互動責任，再讓網路層專注傳遞權限與狀態。</p>
         </div>
-
-        <div class="section-heading section-heading--spaced">
-          <h2>技術反思</h2>
-          <i aria-hidden="true"></i>
-        </div>
-        <div class="reflection">
-          <div class="reflection__copy">
-            <p>從完成系統，<br>到建立可維護的系統。</p>
-            <small>這個專案讓我理解：功能完成只是第一步。面對多人連線與持續調整的玩法，清楚的責任邊界、可追蹤的狀態與可獨立驗證的模組，才能降低後續整合成本。</small>
-          </div>
-          <div class="reflection__track" aria-hidden="true"><i></i><b></b><b></b><b></b><span></span></div>
-        </div>
-
-        <div class="section-heading section-heading--spaced" id="contact">
-          <h2>聯絡</h2>
-          <i aria-hidden="true"></i>
-        </div>
-        <div class="contact-bar">
-          <a href="mailto:shinnhozi@gmail.com">
-            <svg aria-hidden="true"><use href="#icon-mail"></use></svg>
-            shinnhozi@gmail.com
-          </a>
-        </div>
+        <ol class="reflection__path" aria-label="技術成長路徑" data-reveal>
+          <li><span>當時</span><strong>快速串起可玩版本</strong></li><li><span>學到</span><strong>辨認耦合與同步限制</strong></li><li><span>現在</span><strong>先定義邊界，再整合系統</strong></li>
+        </ol>
       </section>
     </main>
+
   </body>
 </html>
