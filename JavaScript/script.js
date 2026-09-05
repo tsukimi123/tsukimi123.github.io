@@ -123,7 +123,6 @@ document.querySelectorAll("[data-atlas-workbench]").forEach((atlas) => {
   }
 
   tabs.forEach((tab) => {
-    tab.addEventListener("mouseenter", () => selectAtlasPanel(tab));
     tab.addEventListener("focus", () => selectAtlasPanel(tab));
     tab.addEventListener("click", () => selectAtlasPanel(tab));
   });
