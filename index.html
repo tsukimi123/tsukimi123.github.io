@@ -6,8 +6,8 @@
     <meta name="description" content="詹昀昇的 Unity Gameplay Programmer 作品集，以 Game Producer 2 展示角色能力、物件互動、Photon Ownership、位置同步與多人房間流程。">
     <meta name="theme-color" content="#07131f">
     <title>個人作品集</title>
-    <link rel="stylesheet" href="CSS/styles.css?v=20260904-1">
-    <script src="JavaScript/script.js?v=20260904-1" defer></script>
+    <link rel="stylesheet" href="CSS/styles.css?v=20260905-1">
+    <script src="JavaScript/script.js?v=20260905-1" defer></script>
   </head>
   <body>
     <a class="skip-link" href="#main-content">跳到主要內容</a>
@@ -45,7 +45,7 @@
         <div class="hero__layout">
           <div class="hero__copy" data-reveal>
             <h1 id="hero-title"><span>UNITY</span><span>GAMEPLAY</span><span>PROGRAMMER</span></h1>
-            <p class="hero__statement">團隊設計，<strong>我負責實作。</strong></p>
+            <p class="hero__statement">團隊設計，我負責實作。</p>
             <p class="hero__stack">Unity 2019.4 · C# · Photon PUN</p>
             <div class="hero__actions">
               <a class="button button--primary" href="#systems">查看系統解析<span aria-hidden="true">→</span></a>
@@ -54,7 +54,7 @@
           </div>
           <figure class="hero__media media-frame" data-reveal>
             <video autoplay muted loop playsinline preload="metadata" poster="assets/hero-gameplay.webp" data-ambient-video aria-label="Game Producer 2 中兩名玩家合作通過懸吊平台與升降機關的實機片段">
-              <source src="assets/video/hero-coop-loop.mp4" type="video/mp4">
+              <source src="Assets/video/hero-coop-loop.mp4" type="video/mp4">
             </video>
             <figcaption><span>可玩成果</span><strong>雙人連線合作動作解謎</strong></figcaption>
           </figure>
@@ -66,8 +66,8 @@
 
       <section class="trace section-shell" id="story" aria-labelledby="trace-title">
         <div class="section-heading" data-reveal>
-          <h2 id="trace-title">從團隊規格到可玩結果</h2>
-          <p>招募者可以沿著同一條實作路徑，看見我如何把共同規劃的功能轉成能操作、能連線、能整合進關卡的系統。</p>
+          <h2 id="trace-title">專案分工</h2>
+          <p>三人共同設計玩法與關卡，我負責程式實作與系統整合，將團隊規格轉成雙人合作的可玩版本。</p>
         </div>
         <div class="trace__layout">
           <ol class="trace__steps" aria-label="實作證據鏈" data-reveal>
@@ -76,8 +76,8 @@
             <li><span class="trace__number">03</span><div><h3>可玩成果</h3><p>將各項功能整合成最多兩人能實際連線合作通關的版本。</p></div></li>
           </ol>
           <figure class="promo-reel media-frame" data-reveal>
-            <video controls preload="metadata" poster="assets/video/promo-poster.webp" aria-label="Game Producer 2 宣傳影片">
-              <source src="assets/video/gameproducer2-promo.mp4" type="video/mp4">
+            <video controls preload="metadata" poster="Assets/video/promo-poster.webp" aria-label="Game Producer 2 宣傳影片">
+              <source src="Assets/video/gameproducer2-promo.mp4" type="video/mp4">
               您的瀏覽器不支援 HTML5 影片播放。
             </video>
             <figcaption><span>專案宣傳片</span><strong>Game Producer 2</strong></figcaption>
@@ -87,14 +87,14 @@
 
       <section class="roles section-shell" aria-labelledby="roles-title">
         <div class="section-heading" data-reveal>
-          <h2 id="roles-title"><span class="roles-heading__line">兩種能力</span><span class="roles-heading__line">一套合作系統</span></h2>
+          <h2 id="roles-title">兩種能力，一套合作系統</h2>
           <p>角色能力由團隊共同設計；以下流程、互動行為與網路整合由我負責程式實作。</p>
         </div>
         <div class="roles__grid">
           <article class="role-panel" data-reveal>
             <figure class="role-panel__media media-frame">
               <video autoplay muted loop playsinline preload="metadata" poster="assets/artist-gameplay.webp" data-ambient-video aria-label="Artist 以繪製路徑生成互動物件的實機片段">
-                <source src="assets/video/artist-ability-loop.mp4" type="video/mp4">
+                <source src="Assets/video/artist-ability-loop.mp4" type="video/mp4">
               </video>
             </figure>
             <div class="role-panel__copy"><h3>美術 <span>｜繪製與生成</span></h3><p>取樣玩家繪製路徑，建立 LineRenderer 軌跡並生成可參與碰撞與解謎的場景物件。</p><ul><li>輸入取樣</li><li>路徑資料</li><li>Photon 生成</li><li>碰撞互動</li></ul></div>
@@ -102,7 +102,7 @@
           <article class="role-panel" data-reveal>
             <figure class="role-panel__media media-frame">
               <video autoplay muted loop playsinline preload="metadata" poster="assets/programmer-gameplay.webp" data-ambient-video aria-label="Programmer 選取並移動場景互動物件的實機片段">
-                <source src="assets/video/programmer-control-loop.mp4" type="video/mp4">
+                <source src="Assets/video/programmer-control-loop.mp4" type="video/mp4">
               </video>
             </figure>
             <div class="role-panel__copy"><h3>程式 <span>｜物件控制</span></h3><p>以射線選取物件，要求 Photon Ownership，再透過 Rigidbody 執行移動、縮放與投擲。</p><ul><li>Raycast 選取</li><li>Ownership</li><li>Move / Scale</li><li>Throw</li></ul></div>
@@ -112,8 +112,8 @@
 
       <section class="atlas section-shell" id="systems" aria-labelledby="atlas-title">
         <div class="section-heading" data-reveal>
-          <h2 id="atlas-title">把關卡畫面拆成四條系統路徑</h2>
-          <p>系統圖譜將輸入、能力、控制權與位置同步放回實機畫面，說明各模組如何共同形成玩家看到的結果。</p>
+          <h2 id="atlas-title">系統解析</h2>
+          <p>從輸入到位置同步，四個環節共同支撐合作玩法。選擇項目，查看對應的關卡畫面。</p>
         </div>
         <div class="atlas__board" data-atlas-workbench data-reveal>
           <div class="atlas__media" aria-live="polite">
@@ -139,9 +139,21 @@
         </ul>
       </section>
 
+      <section class="network-case section-shell" aria-labelledby="network-case-title">
+        <div class="section-heading" data-reveal>
+          <h2 id="network-case-title">連線同步：問題與取捨</h2>
+          <p>連線不同步是開發中花最多時間處理的問題。我透過權限控管、狀態傳遞與實際遊玩，持續降低問題發生率。</p>
+        </div>
+        <ol class="case-flow" data-reveal>
+          <li><span>01</span><div><h3>問題</h3><p>雙客戶端同時操作場景物件時，位置延遲、跳動與碰撞結果會影響合作體驗。</p></div></li>
+          <li><span>02</span><div><h3>處理方式</h3><p>本機角色負責送出狀態；遠端接收位置後修正差距，物件操作前先要求控制權。</p></div></li>
+          <li><span>03</span><div><h3>限制</h3><p>受網路品質與物理更新影響，仍可能出現短暫誤差，因此以降低不同步發生率為目標。</p></div></li>
+        </ol>
+      </section>
+
       <section class="code-evidence section-shell" id="code" aria-labelledby="code-title">
         <div class="section-heading" data-reveal>
-          <h2 id="code-title">從四段程式碼看見系統責任</h2>
+          <h2 id="code-title">程式實作與重點解析</h2>
           <p>透過角色能力、物件控制、位置同步與重生流程，呈現我在 Game Producer 2 中負責的程式實作。</p>
         </div>
         <div class="code-workbench" data-code-workbench data-reveal>
@@ -153,9 +165,17 @@
           </div>
 
           <div class="code-review" id="code-panel-artist" role="tabpanel" aria-labelledby="code-tab-artist" data-code-panel="artist">
+            <aside class="code-review__notes" aria-label="繪製生成程式重點">
+              <header><span>程式重點</span></header>
+              <ol class="review-notes">
+                <li class="review-note review-note--guard"><span class="review-note__number">01</span><div><h3>以輸入階段管理繪製狀態</h3><p>開始、持續與取消事件分別建立軌跡、進入繪製及結束繪製。</p></div></li>
+                <li class="review-note review-note--rpc"><span class="review-note__number">02</span><div><h3>生成可同步的繪製物件</h3><p>透過 PhotonNetwork.Instantiate 建立 Draw 物件，讓結果進入多人關卡。</p></div></li>
+                <li class="review-note review-note--state"><span class="review-note__number">03</span><div><h3>設定軌跡外觀與資料</h3><p>取得 LineRenderer 後設定顏色、寬度與頂點計數，形成可互動路徑。</p></div></li>
+              </ol>
+            </aside>
             <article class="code-review__source" aria-labelledby="code-source-artist">
               <header><div><strong id="code-source-artist">Artist / ArtistSkill.cs</strong><span>輸入事件、Photon 生成與 LineRenderer</span></div></header>
-              <pre aria-label="ArtistSkill.cs 繪製生成功能程式碼"><code><span class="code-line" data-line="34"><span class="code-keyword">private void</span> Start()</span>
+              <pre tabindex="0" aria-label="ArtistSkill.cs 繪製生成功能程式碼"><code><span class="code-line" data-line="34"><span class="code-keyword">private void</span> Start()</span>
 <span class="code-line" data-line="35">{</span>
 <span class="code-line code-line--guard" data-line="36">    inputMaster.Player.UsingSkill.started += _ =&gt;</span>
 <span class="code-line code-line--guard" data-line="37">    {</span>
@@ -184,20 +204,20 @@
 <span class="code-line" data-line="60">    };</span>
 <span class="code-line" data-line="61">}</span></code></pre>
             </article>
-            <aside class="code-review__notes" aria-label="繪製生成程式重點">
-              <header><span>CODE REVIEW</span></header>
-              <ol class="review-notes">
-                <li class="review-note review-note--guard"><span class="review-note__number">01</span><div><h3>以輸入階段管理繪製狀態</h3><p>開始、持續與取消事件分別建立軌跡、進入繪製及結束繪製。</p></div></li>
-                <li class="review-note review-note--rpc"><span class="review-note__number">02</span><div><h3>生成可同步的繪製物件</h3><p>透過 PhotonNetwork.Instantiate 建立 Draw 物件，讓結果進入多人關卡。</p></div></li>
-                <li class="review-note review-note--state"><span class="review-note__number">03</span><div><h3>設定軌跡外觀與資料</h3><p>取得 LineRenderer 後設定顏色、寬度與頂點計數，形成可互動路徑。</p></div></li>
-              </ol>
-            </aside>
           </div>
 
           <div class="code-review" id="code-panel-control" role="tabpanel" aria-labelledby="code-tab-control" data-code-panel="control" hidden>
+            <aside class="code-review__notes" aria-label="物件控制程式重點">
+              <header><span>程式重點</span></header>
+              <ol class="review-notes">
+                <li class="review-note review-note--guard"><span class="review-note__number">01</span><div><h3>限制可操作物件範圍</h3><p>Raycast 只檢查 DragObject 圖層，先縮小互動目標再取得物件。</p></div></li>
+                <li class="review-note review-note--rpc"><span class="review-note__number">02</span><div><h3>操作前要求控制權</h3><p>選中物件後先呼叫 IsChangeOwner，再進入後續移動或縮放流程。</p></div></li>
+                <li class="review-note review-note--state"><span class="review-note__number">03</span><div><h3>依技能模式切換操作</h3><p>同一組輸入可進入拖曳、縮放或投擲狀態，對應不同關卡需求。</p></div></li>
+              </ol>
+            </aside>
             <article class="code-review__source" aria-labelledby="code-source-control">
               <header><div><strong id="code-source-control">Programmer / ProgrammerSkill.cs</strong><span>Raycast、Ownership 與物件操作</span></div></header>
-              <pre aria-label="ProgrammerSkill.cs 物件控制功能程式碼"><code><span class="code-line" data-line="164"><span class="code-keyword">public void</span> UseSkill()</span>
+              <pre tabindex="0" aria-label="ProgrammerSkill.cs 物件控制功能程式碼"><code><span class="code-line" data-line="164"><span class="code-keyword">public void</span> UseSkill()</span>
 <span class="code-line" data-line="165">{</span>
 <span class="code-line code-line--guard" data-line="166">    inputMaster.Player.UsingSkill.started += _ =&gt;</span>
 <span class="code-line code-line--guard" data-line="167">    {</span>
@@ -225,20 +245,20 @@
 <span class="code-line code-line--state" data-line="189">        Holding = <span class="code-keyword">true</span>;</span>
 <span class="code-line" data-line="190">    };</span></code></pre>
             </article>
-            <aside class="code-review__notes" aria-label="物件控制程式重點">
-              <header><span>CODE REVIEW</span></header>
-              <ol class="review-notes">
-                <li class="review-note review-note--guard"><span class="review-note__number">01</span><div><h3>限制可操作物件範圍</h3><p>Raycast 只檢查 DragObject 圖層，先縮小互動目標再取得物件。</p></div></li>
-                <li class="review-note review-note--rpc"><span class="review-note__number">02</span><div><h3>操作前要求控制權</h3><p>選中物件後先呼叫 IsChangeOwner，再進入後續移動或縮放流程。</p></div></li>
-                <li class="review-note review-note--state"><span class="review-note__number">03</span><div><h3>依技能模式切換操作</h3><p>同一組輸入可進入拖曳、縮放或投擲狀態，對應不同關卡需求。</p></div></li>
-              </ol>
-            </aside>
           </div>
 
           <div class="code-review" id="code-panel-sync" role="tabpanel" aria-labelledby="code-tab-sync" data-code-panel="sync" hidden>
+            <aside class="code-review__notes" aria-label="位置同步程式重點">
+              <header><span>程式重點</span></header>
+              <ol class="review-notes">
+                <li class="review-note review-note--guard"><span class="review-note__number">01</span><div><h3>只更新遠端角色副本</h3><p>本機擁有的角色直接返回，避免同步邏輯覆蓋玩家當下操作。</p></div></li>
+                <li class="review-note review-note--rpc"><span class="review-note__number">02</span><div><h3>傳送必要的位置狀態</h3><p>Photon 序列化只傳送角色位置，遠端客戶端保存最新接收結果。</p></div></li>
+                <li class="review-note review-note--state"><span class="review-note__number">03</span><div><h3>依差距修正顯示</h3><p>差距過大時直接校正位置，其餘情況依方向更新遠端移動表現。</p></div></li>
+              </ol>
+            </aside>
             <article class="code-review__source" aria-labelledby="code-source-sync">
               <header><div><strong id="code-source-sync">Artist / NetworkPlayer.cs</strong><span>遠端位置接收與差距修正</span></div></header>
-              <pre aria-label="NetworkPlayer.cs 位置同步功能程式碼"><code><span class="code-line" data-line="12"><span class="code-keyword">public void</span> Update()</span>
+              <pre tabindex="0" aria-label="NetworkPlayer.cs 位置同步功能程式碼"><code><span class="code-line" data-line="12"><span class="code-keyword">public void</span> Update()</span>
 <span class="code-line" data-line="13">{</span>
 <span class="code-line code-line--guard" data-line="14">    <span class="code-keyword">if</span> (photonView.IsMine)</span>
 <span class="code-line code-line--guard" data-line="15">        <span class="code-keyword">return</span>;</span>
@@ -270,20 +290,20 @@
 <span class="code-line code-line--rpc" data-line="53">    }</span>
 <span class="code-line code-line--rpc" data-line="54">}</span></code></pre>
             </article>
-            <aside class="code-review__notes" aria-label="位置同步程式重點">
-              <header><span>CODE REVIEW</span></header>
-              <ol class="review-notes">
-                <li class="review-note review-note--guard"><span class="review-note__number">01</span><div><h3>只更新遠端角色副本</h3><p>本機擁有的角色直接返回，避免同步邏輯覆蓋玩家當下操作。</p></div></li>
-                <li class="review-note review-note--rpc"><span class="review-note__number">02</span><div><h3>傳送必要的位置狀態</h3><p>Photon 序列化只傳送角色位置，遠端客戶端保存最新接收結果。</p></div></li>
-                <li class="review-note review-note--state"><span class="review-note__number">03</span><div><h3>依差距修正顯示</h3><p>差距過大時直接校正位置，其餘情況依方向更新遠端移動表現。</p></div></li>
-              </ol>
-            </aside>
           </div>
 
           <div class="code-review" id="code-panel-respawn" role="tabpanel" aria-labelledby="code-tab-respawn" data-code-panel="respawn" hidden>
+            <aside class="code-review__notes" aria-label="檢查點重生程式重點">
+              <header><span>程式重點</span></header>
+              <ol class="review-notes">
+                <li class="review-note review-note--guard"><span class="review-note__number">01</span><div><h3>只讓本機角色回報檢查點</h3><p>先確認碰撞角色的 PhotonView，避免遠端副本重複送出事件。</p></div></li>
+                <li class="review-note review-note--rpc"><span class="review-note__number">02</span><div><h3>依角色分流重生座標</h3><p>同一個 SpawnPoint 透過 RPC 分別保存兩名角色的重生位置。</p></div></li>
+                <li class="review-note review-note--state"><span class="review-note__number">03</span><div><h3>整合進實際關卡</h3><p>Game.unity 配置 34 個 SpawnPoint 實例，供兩個角色管理器取用。</p></div></li>
+              </ol>
+            </aside>
             <article class="code-review__source" aria-labelledby="code-source-respawn">
               <header><div><strong id="code-source-respawn">System / SpawnPoint.cs</strong><span>本機碰撞、RPC 與重生狀態</span></div></header>
-              <pre aria-label="SpawnPoint.cs 檢查點重生功能程式碼"><code><span class="code-line" data-line="23"><span class="code-keyword">private void</span> OnTriggerEnter(<span class="code-type">Collider</span> other)</span>
+              <pre tabindex="0" aria-label="SpawnPoint.cs 檢查點重生功能程式碼"><code><span class="code-line" data-line="23"><span class="code-keyword">private void</span> OnTriggerEnter(<span class="code-type">Collider</span> other)</span>
 <span class="code-line" data-line="24">{</span>
 <span class="code-line code-line--guard" data-line="25">    <span class="code-type">PhotonView</span> photonView = other.GetComponent&lt;<span class="code-type">PhotonView</span>&gt;();</span>
 <span class="code-line code-line--guard" data-line="26">    <span class="code-keyword">if</span> (photonView != <span class="code-keyword">null</span> &amp;&amp; photonView.IsMine == <span class="code-keyword">false</span>)</span>
@@ -316,33 +336,13 @@
 <span class="code-line code-line--state" data-line="53">    GM.CoderPosition = position;</span>
 <span class="code-line code-line--state" data-line="54">}</span></code></pre>
             </article>
-            <aside class="code-review__notes" aria-label="檢查點重生程式重點">
-              <header><span>CODE REVIEW</span></header>
-              <ol class="review-notes">
-                <li class="review-note review-note--guard"><span class="review-note__number">01</span><div><h3>只讓本機角色回報檢查點</h3><p>先確認碰撞角色的 PhotonView，避免遠端副本重複送出事件。</p></div></li>
-                <li class="review-note review-note--rpc"><span class="review-note__number">02</span><div><h3>依角色分流重生座標</h3><p>同一個 SpawnPoint 透過 RPC 分別保存兩名角色的重生位置。</p></div></li>
-                <li class="review-note review-note--state"><span class="review-note__number">03</span><div><h3>整合進實際關卡</h3><p>Game.unity 配置 34 個 SpawnPoint 實例，供兩個角色管理器取用。</p></div></li>
-              </ol>
-            </aside>
           </div>
         </div>
       </section>
 
-      <section class="network-case section-shell" aria-labelledby="network-case-title">
-        <div class="section-heading" data-reveal>
-          <h2 id="network-case-title">花最久時間處理的問題：連線不同步</h2>
-          <p>針對連線延遲與物理同步誤差，我透過權限控管、狀態傳遞與實際遊玩持續降低問題發生率。</p>
-        </div>
-        <ol class="case-flow" data-reveal>
-          <li><span>01</span><div><h3>問題</h3><p>雙客戶端同時操作場景物件時，位置延遲、跳動與碰撞結果會影響合作體驗。</p></div></li>
-          <li><span>02</span><div><h3>處理方式</h3><p>本機角色負責送出狀態；遠端接收位置後修正差距，物件操作前先要求控制權。</p></div></li>
-          <li><span>03</span><div><h3>限制</h3><p>受網路品質與物理更新影響，仍可能出現短暫誤差，因此以降低不同步發生率為目標。</p></div></li>
-        </ol>
-      </section>
-
       <section class="testing section-shell" aria-labelledby="testing-title">
         <div class="section-heading" data-reveal>
-          <h2 id="testing-title">用兩個客戶端驗證多人流程</h2>
+          <h2 id="testing-title">雙客戶端測試</h2>
           <p>先在同一台電腦啟動兩份遊戲執行檔進行功能測試，再與團隊成員實際遊玩，確認最多兩人的合作流程。</p>
         </div>
         <dl class="testing__facts" data-reveal>
@@ -354,26 +354,25 @@
 
       <section class="results section-shell" aria-labelledby="results-title">
         <div class="section-heading" data-reveal>
-          <h2 id="results-title">功能最後必須回到可玩的關卡</h2>
+          <h2 id="results-title">關卡中的實作成果</h2>
           <p>角色能力、物件控制與同步機制，最終都在合作機關、敵人與 Boss 情境中接受整合測試。</p>
         </div>
         <div class="results__grid">
-          <figure class="result-media media-frame" data-reveal><img src="assets/cooperation.webp" alt="兩名角色在科技關卡中合作前進" width="1400" height="788" loading="lazy"><figcaption>能力協作</figcaption></figure>
-          <figure class="result-media media-frame" data-reveal><img src="assets/level-mechanic.webp" alt="角色共同破壞關卡障礙" width="1400" height="788" loading="lazy"><figcaption>互動式關卡元件</figcaption></figure>
           <figure class="result-video result-media media-frame" data-reveal>
             <video autoplay muted loop playsinline preload="metadata" poster="assets/boss.webp" data-ambient-video aria-label="Game Producer 2 Boss 戰鬥實機片段">
-              <source src="assets/video/boss-battle-loop.mp4" type="video/mp4">
+              <source src="Assets/video/boss-battle-loop.mp4" type="video/mp4">
             </video>
             <figcaption>Boss 戰鬥實機</figcaption>
           </figure>
-          <figure class="result-media media-frame" data-reveal><img src="assets/boss.webp" alt="Game Producer 2 的 Boss 戰鬥畫面" width="1400" height="788" loading="lazy"><figcaption>Boss 與戰鬥整合</figcaption></figure>
+          <figure class="result-media media-frame" data-reveal><img src="assets/cooperation.webp" alt="兩名角色在科技關卡中合作前進" width="1400" height="788" loading="lazy"><figcaption>能力協作</figcaption></figure>
+          <figure class="result-media media-frame" data-reveal><img src="assets/level-mechanic.webp" alt="角色共同破壞關卡障礙" width="1400" height="788" loading="lazy"><figcaption>互動式關卡元件</figcaption></figure>
         </div>
         <div class="award-panel" data-reveal><svg aria-hidden="true"><use href="#icon-award"></use></svg><div><strong>2022 金點新秀設計獎入圍</strong><span>Game Producer 2</span></div></div>
       </section>
 
       <section class="reflection section-shell" id="reflection" aria-labelledby="reflection-title">
         <div class="reflection__statement" data-reveal>
-          <h2 id="reflection-title">從完成系統，<br>到建立可維護的系統。</h2>
+          <h2 id="reflection-title">讓系統完成，<br>也讓它更容易維護。</h2>
           <p>Game Producer 2 讓我理解，功能完成只是第一步。多人連線需要清楚的權限邊界、可追蹤的狀態與可以單獨驗證的模組；如果重新實作，我會優先整理輸入事件生命週期、拆分能力與互動責任，再讓網路層專注傳遞權限與狀態。</p>
         </div>
         <ol class="reflection__path" aria-label="技術成長路徑" data-reveal>
