@@ -1,40 +1,4 @@
-<html>
-	<head>
-		<title>qrcode</title>
-		<script src="https://webrtc.github.io/adapter/adapter-latest.js"></script>
-		<script src="https://cdn.jsdelivr.net/npm/jsqr/dist/jsQR.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
-		
-		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
-		<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ENjdO4Dr2bkBIFxQpeoTz1HIcje39Wm4jDKdf19U8gI4ddQ3GYNS7NTKfAdVQSZe" crossorigin="anonymous"></script>
-		
-		<style>
-			#videoElement {
-				width: 600px;
-				height: auto;
-			}
-			#result {
-				margin-top: 20px;
-				font-size: 24px;
-				font-weight: bold;
-			}
-		</style>
-	</head>
-	<body>
-		<div class="container">
-		<div class="row justify-content-md-center">
-		<div class="col-md-auto">
-			<video id="videoElement" autoplay></video>
-			<div id="result"></div>
-			<button onclick="startCamera()">打開相機</button>
-		</div>
-		<div class="col col-md-4">
-			<div id="qrcode"></div>
-		</div>
-		</div>
-		</div>
-		
-		<script>
+
 			const video = document.getElementById('videoElement');
 			const resultDiv = document.getElementById('result');
 			var qrcode = new QRCode(document.getElementById("qrcode"), { width: 384, height: 384,});
@@ -75,6 +39,4 @@
 			video.addEventListener('canplay', () => {
 				requestAnimationFrame(scanQRCode);
 			});
-		</script>
-	</body>
-</html>
+		

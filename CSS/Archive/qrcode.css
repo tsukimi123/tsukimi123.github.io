@@ -1,0 +1,11 @@
+
+			#videoElement {
+				width: 600px;
+				height: auto;
+			}
+			#result {
+				margin-top: 20px;
+				font-size: 24px;
+				font-weight: bold;
+			}
+		
