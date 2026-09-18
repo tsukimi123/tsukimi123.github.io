@@ -1,0 +1,173 @@
+<!doctype html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>2D 平台測試｜玩家行為與控制器差異</title>
+  <meta name="description" content="供玩家行為研究使用的 Unity／C# 2D 平台原型：四種控制模式比較、Part4 操作影片、按鍵紀錄與移動路徑範例，以及控制器與紀錄功能的實作說明。">
+  <meta name="theme-color" content="#f7f9fc">
+  <link rel="stylesheet" href="CSS/Mario/styles.css">
+  <script src="JavaScript/Mario/script.js" defer></script>
+</head>
+<body id="top">
+  <a class="skip-link" href="#main">跳到主要內容</a>
+  <header class="site-header">
+    <div class="shell header-inner">
+      <a class="brand" href="index.html">遊戲程式作品集</a>
+      <nav aria-label="主要導覽">
+        <a href="#modes">四種模式</a>
+        <a href="#records">紀錄範例</a>
+        <a href="#implementation">技術重點</a>
+      </nav>
+    </div>
+  </header>
+  <main id="main" class="shell">
+    <section class="hero" aria-labelledby="project-title">
+      <div>
+        <p class="eyebrow">UNITY / C# · 玩家行為研究</p>
+        <h1 id="project-title">2D 平台測試<span>控制方式與行為紀錄</span></h1>
+        <p class="intro">比較四種操作方式，留下可回看的遊玩紀錄。</p>
+        <p class="description">供玩家行為研究使用的 2D 平台原型，組合不同的跑步與跳躍控制方式，並輸出按鍵操作及移動路徑，供後續研究分析。</p>
+        <dl class="contributions">
+          <div><dt>開發工作</dt><dd>負責角色控制器、關卡機關實作、按鍵紀錄與移動路徑輸出。</dd></div>
+          <div><dt>協作分工</dt><dd>參與部分設計，並協助部分受試者測試。關卡規劃與機關設計由其他成員負責，我依設計實作機關功能。</dd></div>
+        </dl>
+      </div>
+      <figure class="demo" id="demo">
+        <video controls playsinline preload="metadata" poster="Project/Mario/video/poster.jpg" width="1280" height="720" aria-label="Part4 模式，18 秒操作展示">
+          <source src="Project/Mario/video/highlights.mp4" type="video/mp4">
+          您的瀏覽器無法播放影片，請<a href="Project/Mario/video/highlights.mp4">開啟展示影片</a>。
+        </video>
+        <figcaption><strong>Part4 · 18 秒操作展示</strong><span>按住跑步鍵提高最高速度，透過跳躍鍵按壓時間調整跳躍高度。</span></figcaption>
+      </figure>
+    </section>
+
+    <section class="page-section" id="modes" aria-labelledby="modes-title">
+      <div class="section-heading"><h2 id="modes-title">四種控制模式</h2><p>透過跑步速度上限與跳躍高度控制的組合，比較不同操作方式。</p></div>
+      <table>
+        <caption class="sr-only">四種控制模式比較</caption>
+        <thead><tr><th scope="col">展示順序</th><th scope="col">跑步鍵提高最高速度</th><th scope="col">長按跳躍提高高度</th></tr></thead>
+        <tbody>
+          <tr><th scope="row">Part1</th><td>否</td><td>否</td></tr>
+          <tr><th scope="row">Part2</th><td>否</td><td>是</td></tr>
+          <tr><th scope="row">Part3</th><td>是</td><td>否</td></tr>
+          <tr class="featured"><th scope="row">Part4</th><td>是</td><td>是</td></tr>
+        </tbody>
+      </table>
+      <p class="note">影片展示 Part4。啟用 JumpCut 時，在上升途中提早放開跳躍鍵，可降低角色的跳躍高度。</p>
+    </section>
+
+    <section class="page-section" id="records" aria-labelledby="records-title">
+      <div class="section-heading"><h2 id="records-title">按鍵操作與移動路徑</h2><p>實驗紀錄：保留操作順序與移動軌跡，供後續行為分析。</p></div>
+      <div class="records-grid">
+        <article class="record">
+          <h3><span class="format">TXT</span> 按鍵操作紀錄</h3>
+          <p>記錄方向、跳躍與跑步的操作事件及時間，可回看方向切換與操作順序。</p>
+          <figure class="log-example">
+            <pre aria-label="2025 年 1 月 4 日按鍵紀錄節錄">→  (2025/1/4 下午 03:47:33)
+Joystick Button 1  (2025/1/4 下午 03:47:33)
+Jumping  (2025/1/4 下午 03:47:33)
+Joystick Button 1  (2025/1/4 下午 03:47:34)
+放開方向鍵  (2025/1/4 下午 03:47:34)
+←  (2025/1/4 下午 03:47:35)
+Joystick Button 1  (2025/1/4 下午 03:47:35)
+Jumping  (2025/1/4 下午 03:47:35)</pre>
+            <figcaption>原始TXT節錄</figcaption>
+          </figure>
+        </article>
+        <article class="record">
+          <h3><span class="format">PNG</span> 移動路徑紀錄</h3>
+          <p>紅線呈現角色經過的位置、跳躍軌跡與折返區域，可對照關卡配置，觀察玩家的移動路線。</p>
+          <figure class="path-example">
+            <div class="path-viewport" id="path-preview" tabindex="0" role="region" aria-label="實驗移動路徑，可左右捲動" aria-describedby="path-help">
+              <button class="path-strip" type="button" aria-label="放大移動路徑" aria-haspopup="dialog" aria-controls="path-dialog" aria-expanded="false"><img src="Project/Mario/movement-path.png?v=20250104" width="16384" height="4608" loading="lazy" decoding="async" draggable="false" alt="2025 年 1 月 4 日實驗移動路徑：紅色軌跡記錄角色在平台間跳躍及折返的位置"></button>
+            </div>
+            <figcaption id="path-help">左右滑動或拖曳查看路徑，點擊圖片放大。</figcaption>
+          </figure>
+        </article>
+      </div>
+    </section>
+
+    <section class="page-section" id="implementation" aria-labelledby="implementation-title">
+      <div class="section-heading"><h2 id="implementation-title">核心程式實作</h2><p>從跑步與跳躍的控制差異，到操作事件與移動軌跡的保存。</p></div>
+      <article class="technical-row">
+        <h3>01 <span>跑步速度與跳躍高度</span></h3>
+        <div><p>四種模式共用角色控制器，由 <code>currentMode</code> 決定跑步鍵是否生效及是否啟用 JumpCut。<code>isRunning()</code> 結合模式與跑步鍵狀態，選用走路或跑步的速度上限。</p>
+          <p>水平移動依加速度逐步增加速度，再限制於上限。以下節錄向右移動的分支，向左移動則處理相反方向。</p>
+          <figure class="code-example">
+            <figcaption><span>MarioPhysics.cs · 加速度與速度上限</span><a href="https://github.com/tsukimi123/Mario/blob/5ec64dbe7fe91d069640ec0bf68d08aae2323e7f/Assets/Script/Final/MarioPhysics/MarioPhysics.cs#L51-L58">查看原始碼 ↗</a></figcaption>
+            <pre tabindex="0" aria-label="水平速度處理程式碼，可左右捲動"><code>var acceleration = player.MarioAcceleration;
+var MaxSpeed = (player.isRunning()) ? player.MarioRunSpeed : player.MarioMoveSpeed;
+
+if (player.input.right &amp;&amp; player.velocity.x &lt; MaxSpeed)
+{
+    player.velocity.x += acceleration * deltaTime;
+    player.velocity.x = Mathf.Min(player.velocity.x, MaxSpeed);
+}</code></pre>
+          </figure>
+          <p>JumpCut 在角色上升且放開跳躍鍵時，額外減少向上速度，讓短按與長按產生不同的跳躍高度。</p>
+          <figure class="code-example">
+            <figcaption><span>MarioPhysics.cs · JumpCut 分支</span><a href="https://github.com/tsukimi123/Mario/blob/5ec64dbe7fe91d069640ec0bf68d08aae2323e7f/Assets/Script/Final/MarioPhysics/MarioPhysics.cs#L90-L107">查看原始碼 ↗</a></figcaption>
+            <pre tabindex="0" aria-label="JumpCut 重力處理程式碼，可左右捲動"><code>else if (player.velocity.y &gt; 0f &amp;&amp; !player.input.jump)
+{
+    if (player.isJumpcut &amp;&amp; player.isJump)
+    {
+        player.velocity.y -= player.MarioGravity * deltaTime * (player.fallMultiplier / 2);
+    }
+}</code></pre>
+          </figure>
+          <div class="source-links" aria-label="控制模式相關原始碼">
+            <a href="https://github.com/tsukimi123/Mario/blob/5ec64dbe7fe91d069640ec0bf68d08aae2323e7f/Assets/Script/Final/FinalPlayer/PlayerController.cs#L156-L168">模式判斷 ↗</a>
+            <a href="https://github.com/tsukimi123/Mario/blob/5ec64dbe7fe91d069640ec0bf68d08aae2323e7f/Assets/Script/Final/FinalPlayer/PlayerController.cs#L177-L191">跑步條件 ↗</a>
+          </div>
+        </div>
+      </article>
+      <article class="technical-row">
+        <h3>02 <span>操作事件與路徑保存</span></h3>
+        <div><p><code>InputRecoder</code> 偵測方向變化與跳躍、跑步鍵按下事件，交由 <code>RecordKeyChange</code> 加上時間。畫面顯示最近的操作事件，完整事件另存於 <code>outputString</code>，供後續輸出 TXT。</p>
+          <figure class="code-example">
+            <figcaption><span>InputRecoder.cs · 即時顯示與完整事件紀錄</span><a href="https://github.com/tsukimi123/Mario/blob/5ec64dbe7fe91d069640ec0bf68d08aae2323e7f/Assets/Script/InputRecoder.cs#L99-L109">查看原始碼 ↗</a></figcaption>
+            <pre tabindex="0" aria-label="操作事件保存程式碼，可左右捲動"><code>private void RecordKeyChange(string input)
+{
+    string currentTime = DateTime.Now.ToString();
+    inputSteps.Add(input + " " + " (" + currentTime + ")");
+    outputString.Add(input + " " + " (" + currentTime + ")");
+
+    if (inputSteps.Count &gt; maxInput)
+    {
+        inputSteps.RemoveAt(0);  // 限制輸入記錄的最大數量
+    }
+}</code></pre>
+          </figure>
+          <p>路徑取樣以位移為條件：角色距離上一個紀錄點不足 0.1 個 Unity 單位時略過，新增的位置則交由 <code>LineRenderer</code> 連成軌跡。</p>
+          <figure class="code-example">
+            <figcaption><span>movingTrack.cs · 移動路徑取樣</span><a href="https://github.com/tsukimi123/Mario/blob/5ec64dbe7fe91d069640ec0bf68d08aae2323e7f/Assets/Script/movingTrack.cs#L23-L31">查看原始碼 ↗</a></figcaption>
+            <pre tabindex="0" aria-label="移動路徑取樣程式碼，可左右捲動"><code>Vector3 pt = transform.position;
+if (pos.Count &gt; 0 &amp;&amp; (pt - lastPoint).magnitude &lt; 0.1f)
+    return;
+if (pt != new Vector3(0, 0, 0))
+    pos.Add(pt);
+
+line.positionCount = pos.Count;
+if (pos.Count &gt; 0)
+    line.SetPosition(pos.Count - 1, lastPoint);</code></pre>
+          </figure>
+          <p>路徑圖由專用攝影機繪製至 <code>RenderTexture</code>，再讀取影像、編碼為 PNG 並寫入檔案。</p>
+          <div class="source-links" aria-label="紀錄功能相關原始碼">
+            <a href="https://github.com/tsukimi123/Mario/blob/5ec64dbe7fe91d069640ec0bf68d08aae2323e7f/Assets/Script/InputRecoder.cs#L78-L109">按鍵事件偵測 ↗</a>
+            <a href="https://github.com/tsukimi123/Mario/blob/5ec64dbe7fe91d069640ec0bf68d08aae2323e7f/Assets/Script/InputRecoder.cs#L157-L181">TXT 輸出 ↗</a>
+            <a href="https://github.com/tsukimi123/Mario/blob/5ec64dbe7fe91d069640ec0bf68d08aae2323e7f/Assets/Script/PrtScController.cs#L27-L45">PNG 輸出 ↗</a>
+          </div>
+        </div>
+      </article>
+    </section>
+
+    <aside class="credits" aria-label="素材與參考"><p>素材與參考：場景白模由另一位成員製作，視覺參考 Mario；介面使用 Unity 內建樣式，音效取自免費素材庫。360 度轉彎功能參考 Sonic 360 度教學，並依專案需求調整。</p></aside>
+  </main>
+  <dialog id="path-dialog" class="path-dialog" aria-labelledby="path-dialog-title">
+    <div class="zoom-header"><div><h2 id="path-dialog-title">2025/01/04 實驗移動路徑</h2><p>左右滑動或拖曳查看，按 Esc 關閉。</p></div><button class="zoom-close" type="button" aria-label="關閉放大圖片" autofocus>×</button></div>
+    <div class="path-viewport" id="path-zoom" tabindex="0" role="region" aria-label="放大的移動路徑，可左右捲動"><div class="path-strip"><img src="Project/Mario/movement-path.png?v=20250104" width="16384" height="4608" loading="lazy" decoding="async" draggable="false" alt="2025 年 1 月 4 日實驗完整移動路徑"></div></div>
+  </dialog>
+  <footer class="shell site-footer"><a href="index.html">← 返回作品集</a><a href="https://github.com/tsukimi123/Mario">GitHub 專案 ↗</a><a href="#top">回到頁首 ↑</a></footer>
+</body>
+</html>

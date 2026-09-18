@@ -24,20 +24,25 @@
   <main id="main" class="shell">
     <section class="hero" aria-labelledby="project-title">
       <div class="hero-copy">
-        <p class="eyebrow">UNITY / C# <span>戰鬥系統 · 玩家行為研究</span></p>
+        <p class="eyebrow">UNITY / C# <span>戰鬥系統</span></p>
         <h1 id="project-title"><span class="title-rpg">RPG</span> <span class="title-description">戰鬥系統原型測試</span></h1>
         <p class="hero-intro">從一場戰鬥，到可追溯的行為紀錄。</p>
-        <p class="hero-description">供玩家行為研究使用的 RPG 戰鬥原型，整合 ATB、技能與目標選擇，並將遊玩過程輸出為事件紀錄與時間軸。</p>
+        <p class="hero-description">供玩家行為研究使用的 RPG 戰鬥原型，整合 ATB 行動條、技能與目標選擇，並將遊玩過程輸出為事件紀錄與時間軸。</p>
+        <aside class="project-status" aria-labelledby="project-status-title">
+          <h2 id="project-status-title">開發中的研究原型</h2>
+          <p>目前已實作功能經開發者執行測試，可正常運作；尚未完成正式研究測試。</p>
+          <p>本頁提供遊玩影片與戰鬥紀錄範例，目前不提供公開執行檔。</p>
+        </aside>
         <div class="hero-actions">
           <a class="button secondary" href="https://github.com/tsukimi123/ATBTBSRPG-FF4">查看 GitHub <span aria-hidden="true">↗</span></a>
         </div>
       </div>
       <figure class="hero-media" id="demo">
-        <video id="battle-video" controls playsinline preload="metadata" poster="Project/ATBTBSRPG-FF4/video/poster.jpg" width="1280" height="720" aria-label="RPG 戰鬥系統原型測試，40 秒戰鬥精華" tabindex="0">
+        <video id="battle-video" controls controlslist="nodownload" playsinline preload="metadata" poster="Project/ATBTBSRPG-FF4/video/poster.jpg" width="1280" height="720" aria-label="RPG 戰鬥系統原型測試，40 秒戰鬥精華" tabindex="0">
           <source src="Project/ATBTBSRPG-FF4/video/highlights.mp4" type="video/mp4">
-          您的瀏覽器無法播放影片，請<a href="Project/ATBTBSRPG-FF4/video/highlights.mp4">下載戰鬥影片</a>。
+          您的瀏覽器不支援此影片，請使用支援 MP4 的瀏覽器觀看。
         </video>
-        <figcaption><span>實機遊玩畫面</span><span>40 秒戰鬥精華 · 指令、技能與勝利結算</span></figcaption>
+        <figcaption><span>既有開發版本錄影</span><span>40 秒戰鬥精華 · 指令、技能與勝利結算</span></figcaption>
       </figure>
     </section>
     <dl class="project-facts">
@@ -50,25 +55,25 @@
       <div class="section-heading"><div class="section-title"><span class="section-number" aria-hidden="true">01</span><h2 id="systems-title">從指令到戰鬥結果</h2></div><p>把角色準備、玩家選擇與行動執行，串成一套戰鬥流程。</p></div>
       <ol class="battle-flow">
         <li><span class="flow-number">01 / READY</span><h3>ATB 累積</h3><p>依速度累積行動條，滿條後通知戰鬥管理器。</p></li>
-        <li><span class="flow-number">02 / COMMAND</span><h3>指令選擇</h3><p>開啟攻擊或技能選擇，確認技能時檢查 MP。</p></li>
+        <li><span class="flow-number">02 / COMMAND</span><h3>指令選擇</h3><p>選擇攻擊、防禦或技能，確認技能時檢查 MP。</p></li>
         <li><span class="flow-number">03 / TARGET</span><h3>目標選取</h3><p>依技能條件篩選目標，確認後交回戰鬥流程。</p></li>
         <li><span class="flow-number">04 / ACTION</span><h3>行動執行</h3><p>協調行動排隊、技能執行與戰鬥結果。</p></li>
       </ol>
       <div class="battle-detail">
         <figure><img src="Project/ATBTBSRPG-FF4/image3.png" width="2560" height="1440" loading="lazy" decoding="async" alt="技能執行中的實機畫面，顯示技能特效、受傷數字與隊伍 HP、MP、ATB 狀態"><figcaption>技能執行畫面 · 隊伍狀態與戰鬥回饋</figcaption></figure>
-        <div class="battle-copy"><p class="eyebrow">GAMEPLAY IMPLEMENTATION</p><h3>玩家做出選擇，<br>系統接手執行。</h3><p>指令選單與目標選取各自處理輸入，再由戰鬥管理器協調角色狀態，交給 <code>BattleAction</code> 執行攻擊、防禦與技能。</p><p>普通攻擊先保存目標並播放動畫；收到命中事件後，才進入傷害計算與套用流程。</p></div>
+        <div class="battle-copy"><p class="eyebrow">GAMEPLAY IMPLEMENTATION</p><h3>玩家做出選擇，系統接手執行。</h3><p>指令選單與目標選取各自處理輸入，再由戰鬥管理器協調角色狀態與行動流程。攻擊與技能交給 <code>BattleAction</code> 執行，防禦狀態則由戰鬥管理器設定。</p><p>普通攻擊先保存目標並播放動畫；收到命中事件後，才進入傷害計算與套用流程。</p></div>
       </div>
     </section>
 
     <section class="page-section" id="records" aria-labelledby="records-title">
-      <div class="section-heading"><div class="section-title"><span class="section-number" aria-hidden="true">02</span><h2 id="records-title">讓戰鬥行為可被回看</h2></div><p>從操作事件、角色行動到狀態區間，保留後續分析需要的資料。</p></div>
+      <div class="section-heading"><div class="section-title"><span class="section-number" aria-hidden="true">02</span><h2 id="records-title">回顧戰鬥中的操作與行動</h2></div><p>從操作事件、角色行動到狀態區間，保留後續分析需要的資料。</p></div>
       <div class="record-intro"><p>將同一場戰鬥的 BOSS 行為、玩家輸入頻率、ATB 決策時間與角色狀態，放在一條時間軸上對照。</p></div>
       <figure class="timeline-figure">
         <button class="timeline-trigger" type="button" aria-label="放大戰鬥時間軸" aria-haspopup="dialog" aria-controls="timeline-dialog" aria-expanded="false"><img src="Project/ATBTBSRPG-FF4/battle-timeline.png" width="3546" height="834" loading="lazy" decoding="async" alt="既有戰鬥紀錄輸出的完整時間軸，排列 BOSS 行為與狀態、玩家輸入頻率，以及坦克、法師、輔助的行為、ATB 和狀態"></button>
-        <figcaption id="timeline-help"><span>2026.09.11 戰鬥紀錄 · 既有輸出原圖</span><span>點擊圖像放大，再次點擊還原。</span></figcaption>
+        <figcaption id="timeline-help"><span>戰鬥紀錄範例</span><span>點擊圖像放大，再次點擊還原。</span></figcaption>
       </figure>
       <dl class="record-outputs">
-        <div><dt><span>TXT</span> 戰鬥總覽</dt><dd>整理戰鬥結果、輸入次數與角色行為統計，快速掌握一次測試。</dd></div>
+        <div><dt><span>TXT</span> 戰鬥總覽</dt><dd>整理戰鬥結果、輸入次數與角色行為統計，快速掌握單場戰鬥的結果。</dd></div>
         <div><dt><span>CSV</span> 事件明細</dt><dd>保留事件時間、角色、目標與行為，供後續資料整理與分析。</dd></div>
         <div><dt><span>PNG</span> 行為時間軸</dt><dd>將行動與狀態區間視覺化，對照不同角色在戰鬥中的變化。</dd></div>
       </dl>
@@ -76,15 +81,14 @@
     </section>
 
     <section class="page-section implementation" id="implementation" aria-labelledby="implementation-title">
-      <div class="section-heading"><div class="section-title"><span class="section-number" aria-hidden="true">03</span><h2 id="implementation-title">程式實作解析</h2></div><p>從角色準備到紀錄匯出，五個環節各自處理明確的責任。</p></div>
-      <p class="source-note">從要處理的問題出發，對照實作方式與程式碼依據。<span>核對版本 <a href="https://github.com/tsukimi123/ATBTBSRPG-FF4/tree/539ff8a6289b989a4df4567020687e47affd25b7"><code>539ff8a</code> ↗</a></span></p>
+      <div class="section-heading"><div class="section-title"><span class="section-number" aria-hidden="true">03</span><h2 id="implementation-title">程式實作解析</h2></div><p>從角色準備到紀錄匯出，說明五個實作環節的分工。</p></div>
       <div class="implementation-grid">
         <article class="implementation-story" id="code-atb" aria-labelledby="code-atb-title">
           <p class="story-label"><span>01</span>ATB 累積與滿條事件</p>
-          <div class="explanation"><h3 id="code-atb-title">角色同時滿條，誰先準備？</h3><p class="solution-title"><span>實作方式</span>依條件累積，排序後發出 Ready 事件</p><p>只有存活、未詠唱、未 Ready、未行動的角色會累積 ATB。速度經過 <code>BattleCalculator</code> 計算後，乘上每幀時間加入行動條。</p><p>同一幀滿條的角色先按敏捷排序，再以玩家優先與場上順序處理平手，最後逐一發出 <code>ActorBecameReady</code> 事件。</p><p class="code-context">這裡區分「準備完成」與「執行行動」；滿條事件交由戰鬥管理器接續處理。</p></div>
-          <details class="code-disclosure" open>
-            <summary><span>程式依據</span><small>ATBSystem.cs</small><span class="expand-mark" aria-hidden="true"></span></summary>
-            <div class="source-block"><figure class="snippet"><div class="snippet-header"><span>ATBSystem.cs · L97–110 節錄</span><a href="https://github.com/tsukimi123/ATBTBSRPG-FF4/blob/539ff8a6289b989a4df4567020687e47affd25b7/Assets/Script/System/ATBSystem.cs#L97-L110">原始碼 ↗</a></div><pre tabindex="0" aria-label="ATBSystem.cs 程式碼，可左右捲動"><code>float rate = BattleCalculator.GetSpeedValue(a, buffRuntime);
+          <div class="explanation"><h3 id="code-atb-title">角色同時滿條，誰先準備？</h3><p class="solution-title"><span>實作方式</span>依條件累積，排序後發出 Ready 事件</p><p>只有存活、未詠唱，且未處於準備完成（Ready）或行動中的角色會累積 ATB。速度經過 <code>BattleCalculator</code> 計算後，乘上每幀經過的時間，加入行動條。</p><p>同一幀滿條的角色先按敏捷排序；敏捷相同時，再依玩家優先與場上順序決定先後，最後逐一發出 <code>ActorBecameReady</code> 事件。</p><p class="code-context">「準備完成」與「執行行動」分開處理，滿條事件交由戰鬥管理器接續處理。</p></div>
+          <div class="code-panel">
+            <div class="code-panel-header"><span>程式碼節錄</span><small>ATBSystem.cs</small></div>
+            <div class="source-block" tabindex="0" role="region" aria-label="程式碼節錄，可上下捲動"><figure class="snippet"><div class="snippet-header"><span>ATBSystem.cs · L97–110 節錄</span><a href="https://github.com/tsukimi123/ATBTBSRPG-FF4/blob/539ff8a6289b989a4df4567020687e47affd25b7/Assets/Script/System/ATBSystem.cs#L97-L110">原始碼 ↗</a></div><pre tabindex="0" aria-label="ATBSystem.cs 程式碼，可左右捲動"><code>float rate = BattleCalculator.GetSpeedValue(a, buffRuntime);
 a.AtbGauge += rate * dt;
 
 if (a.AtbGauge &gt;= a.AtbMax)
@@ -98,14 +102,14 @@ if (a.AtbGauge &gt;= a.AtbMax)
         newlyReady.Add(a);
     }
 }</code></pre></figure></div>
-          </details>
+          </div>
         </article>
         <article class="implementation-story" id="code-target" aria-labelledby="code-target-title">
           <p class="story-label"><span>02</span>指令選擇與合法目標</p>
-          <div class="explanation"><h3 id="code-target-title">技能可以選擇哪些目標？</h3><p class="solution-title"><span>實作方式</span>分開處理指令輸入與目標規則</p><p><code>BattleCommandController</code> 在確認技能時檢查角色與 MP，再交給 <code>BattleTargetController</code> 進入目標選取。</p><p>隊友目標選取及技能目標解析使用 <code>IsValidSkillTarget</code>：Self 只能選施法者，復活技能要求目標已死亡，代受傷害技能則排除自己。</p><p class="code-context">確認目標後，依待執行指令呼叫戰鬥管理器的攻擊或技能入口。</p></div>
-          <details class="code-disclosure" open>
-            <summary><span>程式依據</span><small>BattleCommandController / ActorQueryHelper</small><span class="expand-mark" aria-hidden="true"></span></summary>
-            <div class="source-block"><figure class="snippet"><div class="snippet-header"><span>BattleCommandController.cs · L214–230 節錄</span><a href="https://github.com/tsukimi123/ATBTBSRPG-FF4/blob/539ff8a6289b989a4df4567020687e47affd25b7/Assets/Script/UI/BattleCommandController.cs#L214-L230">原始碼 ↗</a></div><pre tabindex="0" aria-label="BattleCommandController.cs 程式碼，可左右捲動"><code>public void OnSkillSelected(ActorData actor, SkillData skill)
+          <div class="explanation"><h3 id="code-target-title">技能可以選擇哪些目標？</h3><p class="solution-title"><span>實作方式</span>分開處理指令輸入與目標規則</p><p><code>BattleCommandController</code> 在確認技能時檢查角色與 MP，再交給 <code>BattleTargetController</code> 進入目標選取。</p><p>隊友目標選取及技能目標解析使用 <code>IsValidSkillTarget</code>：Self（自身）類型只能選擇施法者，復活技能要求目標已死亡，代受傷害技能則排除自己。</p><p class="code-context">確認目標後，依待執行指令呼叫戰鬥管理器的攻擊或技能入口。</p></div>
+          <div class="code-panel">
+            <div class="code-panel-header"><span>程式碼節錄</span><small>BattleCommandController / ActorQueryHelper</small></div>
+            <div class="source-block" tabindex="0" role="region" aria-label="程式碼節錄，可上下捲動"><figure class="snippet"><div class="snippet-header"><span>BattleCommandController.cs · L214–230 節錄</span><a href="https://github.com/tsukimi123/ATBTBSRPG-FF4/blob/539ff8a6289b989a4df4567020687e47affd25b7/Assets/Script/UI/BattleCommandController.cs#L214-L230">原始碼 ↗</a></div><pre tabindex="0" aria-label="BattleCommandController.cs 程式碼，可左右捲動"><code>public void OnSkillSelected(ActorData actor, SkillData skill)
 {
     if (actor == null || actor.HP &lt;= 0f || skill == null) return;
     if (!actor.HasEnoughMP(skill))
@@ -135,14 +139,14 @@ if (a.AtbGauge &gt;= a.AtbMax)
 
     return true;
 }</code></pre></figure></div>
-          </details>
+          </div>
         </article>
         <article class="implementation-story" id="code-queue" aria-labelledby="code-queue-title">
           <p class="story-label"><span>03</span>行動佇列與失效行動處理</p>
           <div class="explanation"><h3 id="code-queue-title">排隊角色死亡，如何處理？</h3><p class="solution-title"><span>實作方式</span>執行前重新檢查，略過失效行動</p><p>每筆佇列資料保留角色與執行動作。取出時再以 <code>CanRunQueuedAction</code> 檢查角色是否存在且仍存活，略過失效項目。</p><p>玩家與敵人各有佇列；戰鬥管理器在沒有行動結算時，先嘗試玩家佇列，再嘗試敵人佇列。角色死亡時也會移除該角色的排隊行動。</p><p class="code-context">Ready 名單與已提交行動的佇列分開維護，避免把滿條順序直接當作所有行動的執行順序。</p></div>
-          <details class="code-disclosure" open>
-            <summary><span>程式依據</span><small>BattleActionQueue / BattleManager</small><span class="expand-mark" aria-hidden="true"></span></summary>
-            <div class="source-block"><figure class="snippet"><div class="snippet-header"><span>BattleActionQueue.cs · L57–72 節錄</span><a href="https://github.com/tsukimi123/ATBTBSRPG-FF4/blob/539ff8a6289b989a4df4567020687e47affd25b7/Assets/Script/System/BattleActionQueue.cs#L57-L72">原始碼 ↗</a></div><pre tabindex="0" aria-label="BattleActionQueue.cs 程式碼，可左右捲動"><code>
+          <div class="code-panel">
+            <div class="code-panel-header"><span>程式碼節錄</span><small>BattleActionQueue / BattleManager</small></div>
+            <div class="source-block" tabindex="0" role="region" aria-label="程式碼節錄，可上下捲動"><figure class="snippet"><div class="snippet-header"><span>BattleActionQueue.cs · L57–72 節錄</span><a href="https://github.com/tsukimi123/ATBTBSRPG-FF4/blob/539ff8a6289b989a4df4567020687e47affd25b7/Assets/Script/System/BattleActionQueue.cs#L57-L72">原始碼 ↗</a></div><pre tabindex="0" aria-label="BattleActionQueue.cs 程式碼，可左右捲動"><code>
 private static bool TryRunNext(Queue&lt;QueuedAction&gt; queue, Predicate&lt;ActorData&gt; canRun)
 {
     while (queue.Count &gt; 0)
@@ -158,14 +162,14 @@ private static bool TryRunNext(Queue&lt;QueuedAction&gt; queue, Predicate&lt;Act
     return false;
 }
 </code></pre></figure></div>
-          </details>
+          </div>
         </article>
         <article class="implementation-story" id="code-hit" aria-labelledby="code-hit-title">
           <p class="story-label"><span>04</span>普通攻擊動畫與命中結算</p>
-          <div class="explanation"><h3 id="code-hit-title">傷害如何銜接攻擊動畫？</h3><p class="solution-title"><span>實作方式</span>先保存目標，在命中事件結算</p><p><code>ExecuteBasicAttack</code> 先保存攻擊目標並呼叫角色播放動畫。角色的 <code>OnAttackHitEvent</code> 再經戰鬥管理器轉交 <code>ResolveAttackHit</code>。</p><p>命中入口會重新檢查目標，接著計算與套用傷害、清除待命中資料，再檢查勝敗並結束行動。</p><p class="code-context">此片段說明普通攻擊的程式銜接；技能由自己的執行流程處理。</p></div>
-          <details class="code-disclosure" open>
-            <summary><span>程式依據</span><small>Actor / BattleManager / BattleAction</small><span class="expand-mark" aria-hidden="true"></span></summary>
-            <div class="source-block"><figure class="snippet"><div class="snippet-header"><span>BattleAction.cs · L129–163 節錄</span><a href="https://github.com/tsukimi123/ATBTBSRPG-FF4/blob/539ff8a6289b989a4df4567020687e47affd25b7/Assets/Script/System/BattleAction.cs#L129-L163">原始碼 ↗</a></div><pre tabindex="0" aria-label="BattleAction.cs 程式碼，可左右捲動"><code>public void ExecuteBasicAttack(ActorData attacker, ActorData target)
+          <div class="explanation"><h3 id="code-hit-title">傷害如何銜接攻擊動畫？</h3><p class="solution-title"><span>實作方式</span>先保存目標，在命中事件結算</p><p><code>ExecuteBasicAttack</code> 先保存攻擊目標並呼叫角色播放動畫。角色的 <code>OnAttackHitEvent</code> 再經戰鬥管理器轉交 <code>ResolveAttackHit</code>。</p><p>收到命中事件後，會重新檢查目標，接著計算與套用傷害、清除待命中資料，再檢查勝敗並結束行動。</p><p class="code-context">普通攻擊透過動畫命中事件結算傷害；技能使用獨立的執行流程。</p></div>
+          <div class="code-panel">
+            <div class="code-panel-header"><span>程式碼節錄</span><small>Actor / BattleManager / BattleAction</small></div>
+            <div class="source-block" tabindex="0" role="region" aria-label="程式碼節錄，可上下捲動"><figure class="snippet"><div class="snippet-header"><span>BattleAction.cs · L129–163 節錄</span><a href="https://github.com/tsukimi123/ATBTBSRPG-FF4/blob/539ff8a6289b989a4df4567020687e47affd25b7/Assets/Script/System/BattleAction.cs#L129-L163">原始碼 ↗</a></div><pre tabindex="0" aria-label="BattleAction.cs 程式碼，可左右捲動"><code>public void ExecuteBasicAttack(ActorData attacker, ActorData target)
 {
     if (!initialized || attacker == null) return;
 
@@ -200,14 +204,14 @@ public void ResolveAttackHit(ActorData attacker)
     checkBattleEnd();
     finishActorTurn(attacker, true);
 }</code></pre></figure></div>
-          </details>
+          </div>
         </article>
         <article class="implementation-story" id="code-records" aria-labelledby="code-records-title">
           <p class="story-label"><span>05</span>戰鬥紀錄的生命週期與匯出</p>
-          <div class="explanation"><h3 id="code-records-title">如何保留一場戰鬥的操作？</h3><p class="solution-title"><span>實作方式</span>戰鬥中收集事件，結束時統一匯出</p><p>UI 在有效操作入口記錄選單移動、確認與取消；Session 另外收集 ATB 決策、角色行動與狀態區間。</p><p>勝利、失敗或正常中斷時，由管理器完成 Session 並交給 Exporter。<code>IsCompleted</code> 防止重複完成；Exporter 在 Windows 環境輸出 TXT、CSV 與 PNG。</p><p class="code-context">紀錄區分「輸入」與「行為」。攻擊、防禦、技能被接受時結束 ATB 決策區間；道具與逃跑則記為嘗試。</p></div>
-          <details class="code-disclosure" open>
-            <summary><span>程式依據</span><small>BattleTelemetrySession / BattleTelemetryExporter</small><span class="expand-mark" aria-hidden="true"></span></summary>
-            <div class="source-block"><figure class="snippet"><div class="snippet-header"><span>BattleManager.cs · L556–569 節錄</span><a href="https://github.com/tsukimi123/ATBTBSRPG-FF4/blob/539ff8a6289b989a4df4567020687e47affd25b7/Assets/Script/System/BattleManager.cs#L556-L569">原始碼 ↗</a></div><pre tabindex="0" aria-label="BattleManager.cs 程式碼，可左右捲動"><code>private void FinalizeBattleTelemetry(BattleTelemetryBattleResult result, string reason)
+          <div class="explanation"><h3 id="code-records-title">如何保留一場戰鬥的操作？</h3><p class="solution-title"><span>實作方式</span>戰鬥中收集事件，結束時統一匯出</p><p>介面在有效操作時記錄選單移動、確認與取消；戰鬥紀錄模組另外收集 ATB 決策、角色行動與狀態區間。</p><p>勝利、失敗或正常中斷時，由管理器彙整戰鬥紀錄，再交給匯出模組。<code>IsCompleted</code> 防止重複完成；匯出模組在 Windows 環境輸出 TXT、CSV 與 PNG。</p><p class="code-context">紀錄區分「輸入」與「行為」。攻擊、防禦、技能被接受時結束 ATB 決策區間；道具與逃跑則記為嘗試。</p></div>
+          <div class="code-panel">
+            <div class="code-panel-header"><span>程式碼節錄</span><small>BattleTelemetrySession / BattleTelemetryExporter</small></div>
+            <div class="source-block" tabindex="0" role="region" aria-label="程式碼節錄，可上下捲動"><figure class="snippet"><div class="snippet-header"><span>BattleManager.cs · L556–569 節錄</span><a href="https://github.com/tsukimi123/ATBTBSRPG-FF4/blob/539ff8a6289b989a4df4567020687e47affd25b7/Assets/Script/System/BattleManager.cs#L556-L569">原始碼 ↗</a></div><pre tabindex="0" aria-label="BattleManager.cs 程式碼，可左右捲動"><code>private void FinalizeBattleTelemetry(BattleTelemetryBattleResult result, string reason)
 {
     if (battleTelemetry == null || battleTelemetry.IsCompleted) return;
 
@@ -224,14 +228,14 @@ public void ResolveAttackHit(ActorData attacker)
 <figure class="snippet"><div class="snippet-header"><span>BattleTelemetryExporter.cs · L15–17 節錄</span><a href="https://github.com/tsukimi123/ATBTBSRPG-FF4/blob/539ff8a6289b989a4df4567020687e47affd25b7/Assets/Script/Telemetry/BattleTelemetryExporter.cs#L15-L17">原始碼 ↗</a></div><pre tabindex="0" aria-label="BattleTelemetryExporter.cs 程式碼，可左右捲動"><code>private const string OverviewFileName = &quot;總覽記錄.txt&quot;;
 private const string EventsFileName = &quot;完整事件.csv&quot;;
 private const string ChartFileName = &quot;可視化圖表.png&quot;;</code></pre></figure></div>
-          </details>
+          </div>
         </article>
       </div>
-      <aside class="scope-note" aria-labelledby="scope-title"><h3 id="scope-title">原型範圍</h3><p>本頁聚焦戰鬥流程與行為紀錄。道具、逃跑目前保留選單及操作嘗試紀錄，尚未完成對應遊戲流程。影片與時間軸為既有素材；以上解析以程式碼核對為準。</p></aside>
+      <aside class="scope-note" aria-labelledby="scope-title"><h3 id="scope-title">原型範圍</h3><p>已實作普通攻擊、防禦、技能與戰鬥紀錄。道具與逃跑目前保留選單及操作嘗試紀錄，尚未完成對應遊戲流程。</p></aside>
     </section>
     <section class="closing" aria-label="繼續探索作品"><div><p class="eyebrow">EXPLORE THE PROJECT</p><h2>從遊玩畫面，看到實作細節。</h2></div><div class="closing-links"><a class="text-link" href="https://github.com/tsukimi123/ATBTBSRPG-FF4">查看 GitHub 專案 ↗</a><a href="index.html">返回首頁 →</a></div></section>
   </main>
-  <footer class="shell site-footer"><span>詹昀昇 · Unity / C# 遊戲程式作品集</span><a href="#top">回到頂部 ↑</a></footer>
+  <footer class="shell site-footer"><span>Unity / C# 遊戲程式作品集</span><a href="#top">回到頂部 ↑</a></footer>
   <dialog class="timeline-dialog" id="timeline-dialog" aria-labelledby="zoom-title" aria-describedby="zoom-help">
     <div class="zoom-header"><div><h2 id="zoom-title">戰鬥時間軸</h2><p id="zoom-help">捲動查看細節；再次點擊圖像或按 Esc 還原。</p></div><button class="zoom-close" type="button" aria-label="關閉放大圖像" autofocus>×</button></div>
     <div class="zoom-scroll" tabindex="0" role="region" aria-label="放大的原始時間軸，可上下左右捲動">
