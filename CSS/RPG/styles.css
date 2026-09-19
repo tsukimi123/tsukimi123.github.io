@@ -51,7 +51,7 @@ h1 { margin-top: 18px; }
 .hero-media { padding-top: 0; min-width: 0; }
 .hero-media video { width: 100%; aspect-ratio: 16/9; background: #191610; border-radius: 3px; }
 figcaption { font-size: 11px; color: var(--muted); margin-top: 10px; line-height: 1.7; }
-.hero-media figcaption, .timeline-figure figcaption { display: flex; justify-content: space-between; gap: 15px; }
+.hero-media figcaption { display: flex; justify-content: space-between; gap: 15px; }
 .project-facts { display: grid; grid-template-columns: 1fr 1.35fr 1fr; padding: 24px 0; border-block: 1px solid var(--line); gap: 28px; }
 .project-facts dt { color: var(--muted); font-size: 11px; margin-bottom: 5px; }
 .project-facts dd { font-size: 14px; }
@@ -148,8 +148,6 @@ pre code { font-size: inherit; overflow-wrap: normal; }
   .battle-detail { grid-template-columns: 1fr; gap: 25px; margin-top: 28px; }
   .battle-copy h3 { font-size: 26px; }
   .record-intro { display: block; }
-  .timeline-figure figcaption { display: block; }
-  .timeline-figure figcaption span { display: block; }
   .record-outputs { grid-template-columns: 1fr; gap: 18px; }
   .record-outputs > div { padding-top: 14px; }
   .record-outputs dd { margin-top: 6px; }
@@ -164,21 +162,6 @@ pre code { font-size: inherit; overflow-wrap: normal; }
 }
 @media (prefers-reduced-motion: reduce) { html { scrollbar-gutter: stable; scroll-behavior: auto; } *, *::before, *::after { transition: none !important; } }
 
-/* The image itself opens a full-resolution view in the current page. */
-button { font: inherit; color: inherit; }
-.timeline-trigger { display: block; width: 100%; padding: 0; border: 0; background: #16171d; border-radius: 3px; overflow: hidden; cursor: zoom-in; }
-.timeline-trigger img { width: 100%; }
-.has-image-zoom { overflow: hidden; }
-.timeline-dialog { width: calc(100vw - 48px); max-width: 1800px; max-height: calc(100dvh - 48px); margin: auto; padding: 0; border: 1px solid var(--line); border-radius: 5px; background: var(--paper); color: var(--ink); }
-.timeline-dialog::backdrop { background: rgb(12 22 36 / 78%); }
-.zoom-header { display: flex; justify-content: space-between; align-items: center; gap: 20px; padding: 15px 22px; }
-.zoom-header h2 { font-size: 18px; }
-.zoom-header p { font-size: 12px; color: var(--muted); margin-top: 3px; }
-.zoom-close { width: 44px; height: 44px; padding: 0; border: 1px solid var(--line); border-radius: 3px; background: transparent; cursor: pointer; font-size: 26px; line-height: 1; flex-shrink: 0; }
-.zoom-close:hover { background: var(--soft); }
-.zoom-scroll { max-height: calc(100dvh - 154px); overflow: auto; background: #16171d; overscroll-behavior: contain; scrollbar-color: #879cba #20252e; }
-.zoom-image { display: block; width: 3546px; padding: 0; border: 0; background: transparent; cursor: zoom-out; }
-.zoom-image img { width: 3546px; max-width: none; height: auto; }
 /* Sequential chapters pair each problem and solution with its source evidence. */
 .implementation-grid { display: grid; grid-auto-rows: 1fr; }
 .implementation-story { min-width: 0; position: relative; display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.15fr); grid-template-rows: 60px 1fr; gap: 0 48px; border-top: 1px solid var(--line); padding: 30px 0 38px 68px; scroll-margin-top: 24px; }
@@ -206,9 +189,4 @@ button { font: inherit; color: inherit; }
   .code-panel { margin-top: 24px; }
   .code-panel-header { height: 80px; padding: 12px; gap: 8px; }
   .code-panel .source-block { padding: 0 8px 8px; }
-  .timeline-dialog { width: calc(100vw - 20px); max-height: calc(100dvh - 20px); }
-  .zoom-header { padding: 12px; gap: 12px; }
-  .zoom-header h2 { font-size: 16px; }
-  .zoom-header p { font-size: 11px; }
-  .zoom-scroll { max-height: calc(100dvh - 125px); }
 }

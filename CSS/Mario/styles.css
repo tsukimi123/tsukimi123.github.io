@@ -37,7 +37,7 @@ h1 { margin-top: 16px; font-size: clamp(32px, 3.2vw, 44px); letter-spacing: -.03
 h1 span { display: block; font-size: .57em; margin-top: 10px; font-weight: 500; letter-spacing: 0; }
 .intro { font-size: 18px; font-weight: 700; margin-top: 26px; }
 .description, .contributions { font-size: 14px; margin-top: 14px; }
-.description, dd, .record > p, .technical-row p { color: var(--muted); }
+.description, dd, .technical-row p { color: var(--muted); }
 .contributions { border-left: 2px solid #9bb4d3; padding-left: 18px; margin-top: 24px; }
 .contributions > div + div { margin-top: 12px; }
 .contributions dt { font-weight: 700; margin-bottom: 3px; }
@@ -56,30 +56,8 @@ tbody th { font-family: Consolas, monospace; font-weight: 400; }
 .featured { background: #e5eef9; }
 .featured th { font-weight: 700; }
 .note { color: var(--muted); font-size: 12px; margin-top: 16px; }
-.records-grid { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.05fr); gap: 32px; }
 h3 { font-size: 20px; }
-.format { font: 13px Consolas, monospace; color: var(--accent); margin-right: 8px; }
-.record > p { font-size: 14px; margin-top: 12px; }
-.record > p.note { font-size: 12px; margin-top: 16px; }
-.log-example { margin-top: 24px; }
 pre { margin: 0; padding: 18px; background: var(--soft); border-left: 2px solid #9bb4d3; font: 12px/1.9 Consolas, "Microsoft JhengHei", monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
-.log-example pre { min-height: 240px; font-size: 13px; }
-.path-example { margin-top: 24px; }
-.path-viewport { aspect-ratio: 16/9; overflow-x: auto; overflow-y: hidden; background: #141820; border-radius: 3px; overscroll-behavior-x: contain; scrollbar-color: #819cc0 #202c40; }
-#path-preview { height: 240px; aspect-ratio: auto; }
-#path-preview .path-strip { width: 350%; }
-.path-strip { display: block; position: relative; width: 450%; height: 100%; padding: 0; border: 0; background: transparent; overflow: hidden; cursor: grab; touch-action: pan-x pan-y; }
-.path-strip img { position: absolute; top: 50%; left: 0; transform: translateY(-38%); width: 100%; max-width: none; height: auto; user-select: none; pointer-events: none; }
-.path-viewport.is-dragging .path-strip { cursor: grabbing; }
-.has-image-zoom { overflow: hidden; }
-.path-dialog { width: calc(100vw - 40px); max-width: 1440px; max-height: calc(100dvh - 40px); margin: auto; padding: 0; border: 1px solid var(--line); border-radius: 4px; color: var(--ink); background: var(--paper); }
-.path-dialog::backdrop { background: rgb(12 22 36 / 78%); }
-.zoom-header { display: flex; align-items: center; justify-content: space-between; gap: 16px; padding: 16px 22px; }
-.zoom-header h2 { font-size: 20px; }
-.zoom-header p { color: var(--muted); font-size: 12px; margin-top: 4px; }
-.zoom-close { flex: 0 0 44px; height: 44px; padding: 0; border: 1px solid var(--line); border-radius: 3px; font-size: 26px; background: var(--paper); cursor: pointer; }
-.zoom-close:hover { background: var(--soft); }
-.path-dialog .path-viewport { height: min(65dvh, 650px); aspect-ratio: auto; border-radius: 0; }
 .code-example { min-width: 0; margin-top: 22px; border: 1px solid var(--line); border-radius: 3px; overflow: hidden; }
 .code-example figcaption { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 16px; margin: 0; padding: 12px 16px; }
 .code-example figcaption a { white-space: nowrap; }
@@ -99,7 +77,6 @@ pre { margin: 0; padding: 18px; background: var(--soft); border-left: 2px solid 
 .site-footer a { padding-block: 6px; }
 @media (max-width: 1000px) {
   .hero { gap: 30px; }
-  .records-grid { gap: 28px; }
   .technical-row { grid-template-columns: 210px minmax(0, 1fr); gap: 24px; }
 }
 @media (max-width: 760px) {
@@ -114,15 +91,6 @@ pre { margin: 0; padding: 18px; background: var(--soft); border-left: 2px solid 
   th, td { padding: 12px 8px; font-size: 14px; }
   thead th { font-size: 12px; }
   th:first-child { width: 23%; }
-  .records-grid { grid-template-columns: 1fr; gap: 30px; }
-  .log-example pre { min-height: 0; font-size: 12px; }
-  #path-preview { height: auto; aspect-ratio: 16/9; }
-  #path-preview .path-strip { width: 450%; }
-  .record + .record { border-top: 1px solid var(--line); padding-top: 26px; }
   .technical-row { grid-template-columns: 1fr; gap: 14px; }
   .technical-row h3 span { display: inline; margin-left: 10px; }
-  .path-dialog { width: calc(100vw - 20px); max-height: calc(100dvh - 20px); }
-  .zoom-header { padding: 12px; }
-  .zoom-header h2 { font-size: 18px; }
-  .path-dialog .path-strip { width: 900%; }
 }
