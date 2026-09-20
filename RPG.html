@@ -37,8 +37,8 @@
         </div>
       </div>
       <figure class="hero-media" id="demo">
-        <video id="battle-video" controls controlslist="nodownload" playsinline preload="metadata" poster="Project/ATBTBSRPG-FF4/video/poster.jpg" width="1280" height="720" aria-label="RPG 戰鬥系統原型測試，40 秒戰鬥精華" tabindex="0">
-          <source src="Project/ATBTBSRPG-FF4/video/highlights.mp4" type="video/mp4">
+        <video id="battle-video" controls controlslist="nodownload" playsinline preload="metadata" poster="Project/ATBTBSRPG-FF4/video/poster.jpg?v=eye-mask-1" width="1280" height="720" aria-label="RPG 戰鬥系統原型測試，40 秒戰鬥精華" tabindex="0">
+          <source src="Project/ATBTBSRPG-FF4/video/highlights.mp4?v=eye-mask-1" type="video/mp4">
           您的瀏覽器不支援此影片，請使用支援 MP4 的瀏覽器觀看。
         </video>
         <figcaption><span>既有開發版本錄影</span><span>40 秒戰鬥精華 · 指令、技能與勝利結算</span></figcaption>
@@ -59,7 +59,7 @@
         <li><span class="flow-number">04 / ACTION</span><h3>行動執行</h3><p>協調行動排隊、技能執行與戰鬥結果。</p></li>
       </ol>
       <div class="battle-detail">
-        <figure><img src="Project/ATBTBSRPG-FF4/image3.png" width="2560" height="1440" loading="lazy" decoding="async" alt="技能執行中的實機畫面，顯示技能特效、受傷數字與隊伍 HP、MP、ATB 狀態"><figcaption>技能執行畫面 · 隊伍狀態與戰鬥回饋</figcaption></figure>
+        <figure><img src="Project/ATBTBSRPG-FF4/image3.png?v=eye-mask-1" width="2560" height="1440" loading="lazy" decoding="async" alt="技能執行中的實機畫面，顯示技能特效、受傷數字與隊伍 HP、MP、ATB 狀態"><figcaption>技能執行畫面 · 隊伍狀態與戰鬥回饋</figcaption></figure>
         <div class="battle-copy"><p class="eyebrow">GAMEPLAY IMPLEMENTATION</p><h3>玩家做出選擇，系統接手執行。</h3><p>指令選單與目標選取各自處理輸入，再由戰鬥管理器協調角色狀態與行動流程。攻擊與技能交給 <code>BattleAction</code> 執行，防禦狀態則由戰鬥管理器設定。</p><p>普通攻擊先保存目標並播放動畫；收到命中事件後，才進入傷害計算與套用流程。</p></div>
       </div>
     </section>
