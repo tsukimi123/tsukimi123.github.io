@@ -28,7 +28,7 @@ img { display: block; max-width: 100%; height: auto; }
 .shell { width: min(1280px, calc(100% - 112px)); margin: auto; }
 .site-header { border-bottom: 1px solid var(--line); }
 .site-header > .shell { height: 104px; display: flex; align-items: center; justify-content: space-between; gap: 20px; }
-.brand { font-size: 23px; font-weight: 700; display: flex; align-items: center; gap: 24px; }
+.brand { font-size: 24px; font-weight: 700; display: flex; align-items: center; gap: 24px; }
 .brand span { font-size: 12px; font-weight: 400; color: var(--muted); }
 nav { display: flex; gap: 36px; font-size: 14px; }
 nav a { padding: 10px 0; }
@@ -108,10 +108,11 @@ h1 { font-size: 80px; letter-spacing: .015em; }
 }
 @media(max-width:760px) {
   .shell { width: calc(100% - 40px); }
-  .site-header > .shell { height: 78px; gap: 10px; }
-  .brand { font-size: 20px; white-space: nowrap; }
+  .site-header > .shell { height: auto; display: block; padding-top: 18px; }
+  .brand { white-space: nowrap; }
   .brand span { display: none; }
-  nav { gap: 12px; font-size: 12px; }
+  nav { justify-content: space-between; gap: 12px; margin-top: 4px; font-size: 12px; }
+  nav a { min-height: 44px; white-space: nowrap; }
   .main { padding: 26px 0 42px; }
   .summary { display: block; min-height: 0; }
   h1 { font-size: 52px; }

@@ -29,8 +29,8 @@ code { font-family: Consolas, "Courier New", monospace; font-size: .88em; overfl
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .site-header { border-bottom: 1px solid var(--line); }
 .header-inner { min-height: 88px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand { display: flex; align-items: center; gap: 24px; font-size: 23px; font-weight: 700; white-space: nowrap; }
-.brand span { font-size: 12px; font-weight: 400; color: var(--muted); }
+.brand { display: flex; align-items: center; gap: 24px; font-size: 16px; font-weight: 700; white-space: nowrap; }
+.brand span { font-size: inherit; font-weight: 400; color: var(--muted); }
 nav { display: flex; gap: 30px; font-size: 14px; }
 nav a { padding: 14px 0; }
 .hero { display: grid; grid-template-columns: minmax(0, .88fr) minmax(0, 1.35fr); gap: 52px; padding: 48px 0 44px; align-items: center; }
@@ -113,8 +113,7 @@ pre code { font-size: inherit; overflow-wrap: normal; }
 @media (max-width: 760px) {
   .shell { width: calc(100% - 40px); }
   .header-inner { min-height: 0; padding-top: 20px; display: block; }
-  .brand { font-size: 21px; justify-content: space-between; gap: 12px; }
-  .brand span { font-size: 11px; }
+  .brand { justify-content: space-between; gap: 12px; }
   nav { justify-content: space-between; gap: 16px; margin-top: 9px; font-size: 12px; }
   nav a { padding: 12px 0; }
   .hero { grid-template-columns: 1fr; gap: 25px; padding: 26px 0 30px; }

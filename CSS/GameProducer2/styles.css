@@ -165,6 +165,21 @@ ol {
   padding-inline: var(--gutter);
 }
 
+.site-footer {
+  padding-block: 24px;
+  border-top: 1px solid var(--line);
+  font-size: 13px;
+}
+
+.site-footer a {
+  display: inline-block;
+  padding-block: 6px;
+}
+
+.site-footer a:hover {
+  color: var(--cyan);
+}
+
 .site-header {
   position: sticky;
   z-index: 100;

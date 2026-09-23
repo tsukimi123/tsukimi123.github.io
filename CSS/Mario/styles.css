@@ -28,7 +28,7 @@ code { font-family: Consolas, monospace; font-size: .9em; overflow-wrap: anywher
 .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
 .site-header { border-bottom: 1px solid var(--line); }
 .header-inner { min-height: 80px; display: flex; align-items: center; justify-content: space-between; gap: 24px; }
-.brand { color: var(--muted); font-size: 13px; text-decoration: none; }
+.brand { color: var(--muted); font-size: 16px; text-decoration: none; }
 nav { display: flex; gap: 28px; font-size: 14px; }
 nav a { padding-block: 12px; text-decoration: none; color: var(--ink); }
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1.2fr); align-items: center; gap: 52px; padding: 52px 0; }
