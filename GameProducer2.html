@@ -35,7 +35,7 @@
           <span class="sr-only">開啟導覽選單</span><svg aria-hidden="true"><use href="#icon-menu"></use></svg>
         </button>
         <nav class="site-nav" id="site-nav" aria-label="主要導覽">
-          <a href="#systems">系統解析</a><a href="#code">程式證據</a><a href="#reflection">技術反思</a>
+          <a href="#systems">系統解析</a><a href="#code">程式實作</a><a href="#reflection">技術反思</a>
         </nav>
       </div>
     </header>
@@ -49,7 +49,7 @@
             <p class="hero__stack">Unity 2019.4 · C# · Photon PUN</p>
             <div class="hero__actions">
               <a class="button button--primary" href="#systems">查看系統解析<span aria-hidden="true">→</span></a>
-              <a class="button button--secondary" href="#code"><svg aria-hidden="true"><use href="#icon-code"></use></svg>查看程式證據</a>
+              <a class="button button--secondary" href="#code"><svg aria-hidden="true"><use href="#icon-code"></use></svg>查看程式實作</a>
             </div>
           </div>
           <figure class="hero__media media-frame" data-reveal>
@@ -251,7 +251,7 @@
             <aside class="code-review__notes" aria-label="位置同步程式重點">
               <header><span>程式重點</span></header>
               <ol class="review-notes">
-                <li class="review-note review-note--guard"><span class="review-note__number">01</span><div><h3>只更新遠端角色副本</h3><p>本機擁有的角色直接返回，避免同步邏輯覆蓋玩家當下操作。</p></div></li>
+                <li class="review-note review-note--guard"><span class="review-note__number">01</span><div><h3>只更新遠端角色副本</h3><p>若角色由本機擁有，程式便直接返回，避免同步邏輯覆蓋玩家當下操作。</p></div></li>
                 <li class="review-note review-note--rpc"><span class="review-note__number">02</span><div><h3>傳送必要的位置狀態</h3><p>Photon 序列化只傳送角色位置，遠端客戶端保存最新接收結果。</p></div></li>
                 <li class="review-note review-note--state"><span class="review-note__number">03</span><div><h3>依差距修正顯示</h3><p>差距過大時直接校正位置，其餘情況依方向更新遠端移動表現。</p></div></li>
               </ol>
@@ -376,7 +376,7 @@
           <p>Game Producer 2 讓我理解，功能完成只是第一步。多人連線需要清楚的權限邊界、可追蹤的狀態與可以單獨驗證的模組；如果重新實作，我會優先整理輸入事件生命週期、拆分能力與互動責任，再讓網路層專注傳遞權限與狀態。</p>
         </div>
         <ol class="reflection__path" aria-label="技術成長路徑" data-reveal>
-          <li><span>當時</span><strong>快速串起可玩版本</strong></li><li><span>學到</span><strong>辨認耦合與同步限制</strong></li><li><span>現在</span><strong>先定義邊界，再整合系統</strong></li>
+          <li><span>當時</span><strong>快速串起可玩版本</strong></li><li><span>學到</span><strong>辨認耦合與同步限制</strong></li><li><span>若重新實作</span><strong>先定義邊界，再整合系統</strong></li>
         </ol>
       </section>
     </main>
