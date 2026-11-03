@@ -59,7 +59,7 @@ tbody th { font-family: Consolas, monospace; font-weight: 400; }
 .featured th { font-weight: 700; }
 .note { color: var(--muted); font-size: 12px; margin-top: 16px; }
 h3 { font-size: 20px; }
-pre { margin: 0; padding: 18px; background: var(--soft); border-left: 2px solid #9bb4d3; font: 12px/1.9 Consolas, "Microsoft JhengHei", monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
+pre { margin: 0; padding: 18px; background: var(--soft); border-left: 2px solid #9bb4d3; font: 13px/1.9 Consolas, "Microsoft JhengHei", monospace; white-space: pre-wrap; overflow-wrap: anywhere; }
 .code-example { min-width: 0; margin-top: 22px; border: 1px solid var(--line); border-radius: 3px; overflow: hidden; }
 .code-example figcaption { display: flex; justify-content: space-between; align-items: baseline; flex-wrap: wrap; gap: 8px 16px; margin: 0; padding: 12px 16px; }
 .code-example figcaption a { white-space: nowrap; }
@@ -81,7 +81,12 @@ pre { margin: 0; padding: 18px; background: var(--soft); border-left: 2px solid 
 @media (max-width: 1150px) { .shell { width: calc(100% - 64px); } }
 @media (max-width: 1000px) {
   .hero { gap: 30px; }
-  .technical-row { grid-template-columns: 210px minmax(0, 1fr); gap: 24px; }
+  .technical-row { grid-template-columns: minmax(0, 1fr); gap: 14px; }
+  .technical-row h3 span { display: inline; margin-left: 10px; }
+}
+@media (max-width: 960px) {
+  .hero { grid-template-columns: minmax(0, 1fr); gap: 28px; }
+  .demo { width: 100%; max-width: 760px; }
 }
 @media (max-width: 760px) {
   .shell { width: calc(100% - 40px); }
@@ -96,6 +101,4 @@ pre { margin: 0; padding: 18px; background: var(--soft); border-left: 2px solid 
   thead th { font-size: 12px; }
   thead .header-break { display: initial; }
   th:first-child { width: 23%; }
-  .technical-row { grid-template-columns: 1fr; gap: 14px; }
-  .technical-row h3 span { display: inline; margin-left: 10px; }
 }

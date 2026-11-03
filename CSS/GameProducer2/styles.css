@@ -1358,12 +1358,20 @@ ol {
   }
 
   .hero__copy {
-    padding-top: 34px;
+    padding-top: 8px;
   }
 
   .hero h1 {
     max-width: 11ch;
-    font-size: clamp(3.8rem, 10vw, 5.6rem);
+    font-size: clamp(3.8rem, 9vw, 4.25rem);
+  }
+
+  .hero__statement {
+    margin-top: 24px;
+  }
+
+  .hero__actions {
+    margin-top: 24px;
   }
 
   .hero__media {
@@ -1538,7 +1546,7 @@ ol {
 
   .hero h1 {
     max-width: none;
-    font-size: clamp(2.7rem, 15vw, 4.7rem);
+    font-size: clamp(2.7rem, 15vw, 4.25rem);
     line-height: 0.94;
   }
 
